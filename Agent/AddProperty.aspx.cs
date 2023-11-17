@@ -19,7 +19,17 @@ namespace Jewar_API
         {
             if (!IsPostBack)
             {
-               
+                foreach (string file in Request.Files)
+                {
+                    //hpf = Request.Files[file] as HttpPostedFileBase;
+                }
+
+
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    var fileDoc = Request.Files[i];
+                }
+
             }
         }
 

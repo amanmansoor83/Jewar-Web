@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<!-- Mirrored from creativelayers.net/themes/homez-html/page-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 07:05:36 GMT -->
+<!-- Mirrored from creativelayers.net/themes/homez-html/Dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 07:05:36 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,17 +78,17 @@
                     <div class="dropdown-menu">
                       <div class="user_setting_content">
                         <p class="fz15 fw400 ff-heading mb20">MAIN</p>
-                        <a class="dropdown-item active" href="page-dashboard.html"><i class="flaticon-discovery mr10"></i>Dashboard</a>
+                        <a class="dropdown-item active" href="Dashboard"><i class="flaticon-discovery mr10"></i>Dashboard</a>
                         <a class="dropdown-item" href="page-dashboard-message.html"><i class="flaticon-chat-1 mr10"></i>Message</a>
                         <p class="fz15 fw400 ff-heading mt30">MANAGE LISTINGS</p>
-                        <a class="dropdown-item" href="AddProperty.aspx"><i class="flaticon-new-tab mr10"></i>Add New Property 1</a>
-                        <a class="dropdown-item" href="page-dashboard-order.html"><i class="flaticon-home mr10"></i>My Properties</a>
-                        <a class="dropdown-item" href="page-dashboard-favorites.html"><i class="flaticon-like mr10"></i>My Favorites</a>
+                        <a class="dropdown-item" href="AddProperty"><i class="flaticon-new-tab mr10"></i>Add New Property 1</a>
+                        <a class="dropdown-item" href="MyProperties"><i class="flaticon-home mr10"></i>My Properties</a>
+                        <a class="dropdown-item" href="MyFavourites"><i class="flaticon-like mr10"></i>My Favorites</a>
                         <a class="dropdown-item" href="page-dashboard-savesearch.html"><i class="flaticon-search-2 mr10"></i>Saved Search</a>
-                        <a class="dropdown-item" href="page-dashboard-review.html"><i class="flaticon-review mr10"></i>Reviews</a>
+                        <a class="dropdown-item" href="Reviews"><i class="flaticon-review mr10"></i>Reviews</a>
                         <p class="fz15 fw400 ff-heading mt30">MANAGE ACCOUNT</p>
                         <a class="dropdown-item" href="page-dashboard-package.html"><i class="flaticon-protection mr10"></i>My Package</a>
-                        <a class="dropdown-item" href="page-dashboard-profile.html"><i class="flaticon-user mr10"></i>My Profile</a>
+                        <a class="dropdown-item" href="Profile"><i class="flaticon-user mr10"></i>My Profile</a>
                         <a class="dropdown-item" href="page-login.html"><i class="flaticon-exit mr10"></i>Logout</a>
                       </div>
                     </div>
@@ -108,33 +108,33 @@
       <div class="dashboard__sidebar d-none d-lg-block">
         <div class="dashboard_sidebar_list">
           <div class="sidebar_list_item">
-            <a href="page-dashboard.html" class="items-center -is-active"><i class="flaticon-discovery mr15"></i>Dashboard</a>
+            <a href="Dashboard" class="items-center -is-active"><i class="flaticon-discovery mr15"></i>Dashboard</a>
           </div>
           <div class="sidebar_list_item ">
             <a href="page-dashboard-message.html" class="items-center"><i class="flaticon-chat-1 mr15"></i>Message</a>
           </div>
           <p class="fz15 fw400 ff-heading mt30">MANAGE LISTINGS</p>
           <div class="sidebar_list_item ">
-            <a href="AddProperty.aspx" class="items-center"><i class="flaticon-new-tab mr15"></i>Add New Property 2</a>
+            <a href="AddProperty" class="items-center"><i class="flaticon-new-tab mr15"></i>Add New Property 2</a>
           </div>
           <div class="sidebar_list_item ">
-            <a href="page-dashboard-properties.html" class="items-center"><i class="flaticon-home mr15"></i>My Properties</a>
+            <a href="MyProperties" class="items-center"><i class="flaticon-home mr15"></i>My Properties</a>
           </div>
           <div class="sidebar_list_item ">
-            <a href="page-dashboard-favorites.html" class="items-center"><i class="flaticon-like mr15"></i>My Favorites</a>
+            <a href="MyFavourites" class="items-center"><i class="flaticon-like mr15"></i>My Favorites</a>
           </div>
           <div class="sidebar_list_item ">
             <a href="page-dashboard-savesearch.html" class="items-center"><i class="flaticon-search-2 mr15"></i>Saved Search</a>
           </div>
           <div class="sidebar_list_item ">
-            <a href="page-dashboard-review.html" class="items-center"><i class="flaticon-review mr15"></i>Reviews</a>
+            <a href="Reviews" class="items-center"><i class="flaticon-review mr15"></i>Reviews</a>
           </div>
           <p class="fz15 fw400 ff-heading mt30">MANAGE ACCOUNT</p>
           <div class="sidebar_list_item ">
             <a href="page-dashboard-package.html" class="items-center"><i class="flaticon-protection mr15"></i>My Package</a>
           </div>
           <div class="sidebar_list_item ">
-            <a href="page-dashboard-profile.html" class="items-center"><i class="flaticon-user mr15"></i>My Profile</a>
+            <a href="Profile" class="items-center"><i class="flaticon-user mr15"></i>My Profile</a>
           </div>
           <div class="sidebar_list_item ">
             <a href="page-login.html" class="items-center"><i class="flaticon-logout mr15"></i>Logout</a>
@@ -149,17 +149,17 @@
                 <div class="dropdown">
                   <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
                   <ul id="myDropdown" class="dropdown-content">
-                    <li class="active"><a href="page-dashboard.html"><i class="flaticon-discovery mr10"></i>Dashboard</a></li>
+                    <li class="active"><a href="Dashboard"><i class="flaticon-discovery mr10"></i>Dashboard</a></li>
                     <li><a href="page-dashboard-message.html"><i class="flaticon-chat-1 mr10"></i>Message</a></li>
                     <li><p class="fz15 fw400 ff-heading mt30 pl30">MANAGE LISTINGS</p></li>
-                    <li><a href="AddProperty.aspx"><i class="flaticon-new-tab mr10"></i>Add New Property 3</a></li>
-                    <li><a href="page-dashboard-properties.html"><i class="flaticon-home mr10"></i>My Properties</a></li>
-                    <li><a href="page-dashboard-favorites.html"><i class="flaticon-like mr10"></i>My Favorites</a></li>
+                    <li><a href="AddProperty"><i class="flaticon-new-tab mr10"></i>Add New Property 3</a></li>
+                    <li><a href="MyProperties"><i class="flaticon-home mr10"></i>My Properties</a></li>
+                    <li><a href="MyFavourites"><i class="flaticon-like mr10"></i>My Favorites</a></li>
                     <li><a href="page-dashboard-savesearch.html"><i class="flaticon-search-2 mr10"></i>Saved Search</a></li>
-                    <li><a href="page-dashboard-review.html"><i class="flaticon-review mr10"></i>Reviews</a></li>
+                    <li><a href="Reviews"><i class="flaticon-review mr10"></i>Reviews</a></li>
                     <li><p class="fz15 fw400 ff-heading mt30 pl30">MANAGE ACCOUNT</p></li>
                     <li><a href="page-dashboard-package.html"><i class="flaticon-protection mr10"></i>My Package</a></li>
-                    <li><a href="page-dashboard-profile.html"><i class="flaticon-user mr10"></i>My Profile</a></li>
+                    <li><a href="Profile"><i class="flaticon-user mr10"></i>My Profile</a></li>
                     <li><a class="" href="page-login.html"><i class="flaticon-exit mr10"></i>Logout</a></li>
                   </ul>
                 </div>
@@ -211,5 +211,5 @@
 <script src="../js/script.js"></script>
 </body>
 
-<!-- Mirrored from creativelayers.net/themes/homez-html/page-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 07:05:38 GMT -->
+<!-- Mirrored from creativelayers.net/themes/homez-html/Dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 07:05:38 GMT -->
 </html>

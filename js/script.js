@@ -404,16 +404,19 @@
                     //alert(data);
                     // Success
                     if (data.success) {
+
                         window.location.href = "/Agent/Dashboard";
+                        $('#btnSignIn').html('Login');
+                        $('#btnSignIn').removeAttr('disabled');
                     }
 
                     else {
                         //alert(data.message);
-                        M.toast({ html: data.message });
+                        //M.toast({ html: data.message });
 
-
-                        $('#btnLogin').html('Login');
-                        $('#btnLogin').removeAttr('disabled');
+                        alert(data.message);
+                        $('#btnSignIn').html('Login');
+                        $('#btnSignIn').removeAttr('disabled');
                     }
                 }
             });
@@ -430,15 +433,180 @@
 
 
 
+
+    $("#fuPropertyImages").on('change', function () {
+        $(".filearray").empty();//you can remove this code if you want previous user input
+        for (let i = 0; i < this.files.length; ++i) {
+            let filereader = new FileReader();
+            //let $img = jQuery.parseHTML(@"<img src=''>");
+            //let $img1 =  "<div class='profile-img position-relative overflow-hidden bdrs12 ml20 ml0-sm'>";
+
+            //let $img = jQuery.parseHTML("<img class='w-100' src='' alt=''>");
+            //let $img2 =  "</div>";
+
+
+            // let img = "<div class='col-2'><div class='profile-img mb20 position-relative'>" ;
+            // let img1 = "<img class='w-100 bdrs12 cover'  src='images/listings/profile-1.jpg' alt='Uploaded Image 1'/>";
+            // let img2 = "<button class='tag-del' title='Delete Image' type='button' data-tooltip-id='delete-0' style='border: none;' fdprocessedid='6ujarj'><span class='fas fa-trash-can'></span></button></div></div>";
+
+            let img = jQuery.parseHTML(`<div class='col-2'><div class='profile-img mb20 position-relative'><img class='w-100 bdrs12 cover'  src='' alt='Uploaded Image 1'/><button class='tag-del' title='Delete Image' id='btndeletepic' type='button' data-tooltip-id='delete-0' style='border: none;' fdprocessedid='6ujarj'><span class='fas fa-trash-can'></span></button></div></div>`);
+            filereader.onload = function () {
+                //img[0].src = this.result;
+                //const item = $(img).find('img')[0]
+                //console.log(item)
+                $(img).find('img')[0].src = this.result;
+            };
+            filereader.readAsDataURL(this.files[i]);
+            $(".filearray").append(img);
+
+        }
+    });
+     
+    $('body').on('click', '#btndeletepic', function (e) {
+        e.preventDefault();
+        //alert(1);
+        //console.log(this);
+        //const col2 = $(this).parent().parent();
+        //console.log(col2)
+        $(this).parent().parent().remove();
+    });
+
+
+    $('#upload').on('click', function () {
+        alert('112');
+        console.log($('#fuPropertyImages').prop('files')[0]);
+        var file_data = $('#fuPropertyImages').prop('files')[0];
+        var form_data = new FormData();
+
+
+        var fileInput = document.getElementById('#fuPropertyImages');
+        var files = fileInput.files;
+        var formData = new FormData();
+
+
+
+        form_data.append('file', file_data);
+        $.ajax({
+            //url: 'http://localhost/ci/index.php/welcome/upload', // point to server-side controller method
+            url: '/Handler/Actions.aspx/Test',
+
+            dataType: 'text', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (response) {
+                $('#msg').html(response); // display success response from the server
+            },
+            error: function (response) {
+                $('#msg').html(response); // display error response from the server
+            }
+        });
+    });
+
+
+
+
     $('body').on('click', '#btnSubmitProperty', function (e) {
         e.preventDefault();
 
-        alert('111');
+       
+            $('#btnSubmitProperty').html('Processing..');
+            $('#btnSubmitProperty').attr('disabled', 'true');
 
-      
-        var Title = $('#txtTitle').val() 
+         
+        var Title = $('#txtTitle').val(),
+            Description = $('#txtDescription').val(),
+            Category = $('#drpCategory').val(),
+            Listed = $('#drpListed').val(),
+            Status = $('#drpStatus').val(),
+            Price = $('#txtPrice').val(),
+            YearlyTaxRate = $('#txtYearlyTaxRate').val(),
+            AfterPriceLabel = $('#txtAfterPriceLabel').val(),
+            VideoFrom = $('#drpVideoFrom').val(),
+            EmbedVideoid = $('#txtEmbedVideoid').val(),
+            VirtualTour = $('#txtVirtualTour').val(),
+            Address = $('#txtAddress').val(),
+            State = $('#drpState').val(),
+            City = $('#drpCity').val(),
+            Neighborhood = $('#txtNeighborhood').val(),
+            Zip = $('#txtZip').val(),
+            Country = $('#drpCountry').val(),
+            Latitude = $('#txtLatitude').val(),
+            Longitude = $('#txtLongitude').val(),
+            Size = $('#txtSize').val(),
+            LotSize = $('#txtLotSize').val(),
+            Rooms = $('#txtRooms').val(),
+            Bedrooms = $('#txtBedrooms').val(),
+            Bathrooms = $('#txtBathrooms').val(),
+            CustomID = $('#txtCustomID').val(),
+            Garages = $('#txtGarages').val(),
+            GarageSize = $('#txtGarageSize').val(),
+            YearBuilt = $('#txtYearBuilt').val(),
+            AvailableFrom = $('#txtAvailableFrom').val(),
+            Basement = $('#txtBasement').val(),
+            ExtraDetails = $('#txtExtraDetails').val(),
+            Roofing = $('#txtRoofing').val(),
+            ExteriorMaterial = $('#txtExteriorMaterial').val(),
+            Structure = $('#drpStructure').val(),
+            Floors = $('#drpFloors').val(),
+            AgentNotes = $('#txtAgentNotes').val(),
+            EnergyClass = $('#drpEnergyClass').val(),
+            EnergyIndex = $('#drpEnergyIndex').val(),
+            Attic = $('#chkAttic').is(':checked'),
+            BasketballCourt = $('#chkBasketballCourt').is(':checked'),
+            AirConditioning = $('#chkAirConditioning').is(':checked'),
+            Lawn = $('#chkLawn').is(':checked'),
+            SwimmingPool = $('#chkSwimmingPool').is(':checked'),
+            Barbeque = $('#chkBarbeque').is(':checked'),
+            Microwave = $('#chkMicrowave').is(':checked'),
+            TVCable = $('#chkTVCable').is(':checked'),
+            Dryer = $('#chkDryer').is(':checked'),
+            OutdoorShower = $('#chkOutdoorShower').is(':checked'),
+            Washer = $('#chkWasher').is(':checked'),
+            Gym = $('#chkGym').is(':checked'),
+            OceanView = $('#chkOceanView').is(':checked'),
+            PrivateSpace = $('#chkPrivateSpace').is(':checked'),
+            LakeView = $('#chkLakeView').is(':checked'),
+            WineCellar = $('#chkWineCellar').is(':checked'),
+            FrontYard = $('#chkFrontYard').is(':checked'),
+            Refrigerator = $('#chkRefrigerator').is(':checked'),
+            WiFi = $('#chkWiFi').is(':checked'),
+            Laundry = $('#chkLaundry').is(':checked'),
+            Sauna = $('#chkSauna').is(':checked');
 
-        alert(Title);
+
+        $.ajax({
+            url: '/Handler/Actions.aspx/AddProperty',
+            type: "POST",
+            //data: '{"OutletID":"' + OutletID + '","OutletName":"' + outletname + '","customerName":"' + username + '","customerPhone":"' + usernum + '","DeliveryAddress":"' + deliveryaddress + '","DeliveryFee":"' + deliveryfee + '","OrderType":"' + ordertype + '","DeliveryArea":"' + DeliveryArea + '","Notes":"' + notes + '","discount":"' + outletdiscount + '","otherdiscount":"0","tax":"' + outlettax + '","deliverytime":"' + deliverytime + '","PreOrderDeliveryTime":"' + PreOrderDeliveryTime + '"}',
+        
+            data: '{"Title":"' + Title + '","Description":"' + Description + '","Category":"' + Category + '","Listed":"' + Listed + '","Status":"' + Status + '","Price":"' + Price + '","YearlyTaxRate":"' + YearlyTaxRate + '","AfterPriceLabel":"' + AfterPriceLabel + '","VideoFrom":"' + VideoFrom + '","EmbedVideoid":"' + EmbedVideoid + '","VirtualTour":"' + VirtualTour + '","Address":"' + Address + '","State":"' + State + '","City":"' + City + '","Neighborhood":"' + Neighborhood + '","Zip":"' + Zip + '","Country":"' + Country + '","Latitude":"' + Latitude + '","Longitude":"' + Longitude + '","Size":"' + Size + '","LotSize":"' + LotSize + '","Rooms":"' + Rooms + '","Bedrooms":"' + Bedrooms + '","Bathrooms":"' + Bathrooms + '","CustomID":"' + CustomID + '","Garages":"' + Garages + '","GarageSize":"' + GarageSize + '","YearBuilt":"' + YearBuilt + '","AvailableFrom":"' + AvailableFrom + '","Basement":"' + Basement + '","ExtraDetails":"' + ExtraDetails + '","Roofing":"' + Roofing + '","ExteriorMaterial":"' + ExteriorMaterial + '","Structure":"' + Structure + '","Floors":"' + Floors + '","AgentNotes":"' + AgentNotes + '","EnergyClass":"' + EnergyClass + '","EnergyIndex":"' + EnergyIndex + '","Attic":"' + Attic + '","BasketballCourt":"' + BasketballCourt + '","AirConditioning":"' + AirConditioning + '","Lawn":"' + Lawn + '","SwimmingPool":"' + SwimmingPool + '","Barbeque":"' + Barbeque + '","Microwave":"' + Microwave + '","TVCable":"' + TVCable + '","Dryer":"' + Dryer + '","OutdoorShower":"' + OutdoorShower + '","Washer":"' + Washer + '","Gym":"' + Gym + '","OceanView":"' + OceanView + '","PrivateSpace":"' + PrivateSpace + '","LakeView":"' + LakeView + '","WineCellar":"' + WineCellar + '","FrontYard":"' + FrontYard + '","Refrigerator":"' + Refrigerator + '","WiFi":"' + WiFi + '","Laundry":"' + Laundry + '","Sauna":"' + Sauna + '"}',
+
+
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                data = $.parseJSON(data.d);
+                //alert(data);
+                // Success
+                if (data.success) {
+                    $('#btnSubmitProperty').html('Submit Property');
+                    $('#btnSubmitProperty').removeAttr('disabled');
+                    window.location.href = "/Agent/Dashboard";
+                }
+
+                else {
+                    //alert(data.message);
+                    M.toast({ html: data.message });
+
+
+                    $('#btnSubmitProperty').html('Submit Property');
+                    $('#btnSubmitProperty').removeAttr('disabled');
+                }
+            }
+        });
     });
 
 

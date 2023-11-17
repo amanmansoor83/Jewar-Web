@@ -11,6 +11,8 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using Jewar.CodeLibrary;
 using System.Text;
+using Amazon.ElasticBeanstalk;
+using System.IO;
 
 namespace Jewar.Handler
 {
@@ -268,7 +270,7 @@ namespace Jewar.Handler
                                 OrderAmount = Convert.ToInt32(TotalAmount);
                             }
 
-                            //int NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks) values('{0}','{1}','{2}','{3}','{4}','Pending','broadwaypizza.com.pk','Web','{5}','{6}','{7}')", customerID, DeliveryAddress, DeliveryFee, OrderAmount, OutletID, OrderType, DeliveryArea,Notes));
+                            //int NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks) values('{0}','{1}','{2}','{3}','{4}','Pending','jewar.com.pk','Web','{5}','{6}','{7}')", customerID, DeliveryAddress, DeliveryFee, OrderAmount, OutletID, OrderType, DeliveryArea,Notes));
 
 
                             //Added By Aman Mansoor on 15-Aug-2014 to extract the City from Outlet ID EAT-795
@@ -287,7 +289,7 @@ namespace Jewar.Handler
                             /// Modified By         : Junaid 
                             /// To Add Status = Pre-Order 
                             /// Task EAt-586 
-                            // Commented By Junaid Under Task EAt-586 NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder) values('{0}','{1}','{2}','{3}','{4}','Pending','broadwaypizza.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, Process.CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder));
+                            // Commented By Junaid Under Task EAt-586 NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder) values('{0}','{1}','{2}','{3}','{4}','Pending','jewar.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, Process.CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder));
                             string strCurrentStatus = "";
                             int DSPCommissionPercentage = 0;
                             int DSPFee = 0;
@@ -303,7 +305,7 @@ namespace Jewar.Handler
 
                             if (strIsPreOrder == "Pre-Order")
                             {
-                                //NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OrderDateTime, notes) values('{0}','{1}','{2}','{3}','{4}','Pre-Order" + strCustVerified + "','broadwaypizza.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}', '{15}', 'Pre-Order, Delivery required at {16}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, Process.CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd H:mm"), Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd hh:mm tt")));
+                                //NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OrderDateTime, notes) values('{0}','{1}','{2}','{3}','{4}','Pre-Order" + strCustVerified + "','jewar.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}', '{15}', 'Pre-Order, Delivery required at {16}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, Process.CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd H:mm"), Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd hh:mm tt")));
 
                                 /// ////////////////////////////////////////////// START ////////////////////////////////////////////// 
                                 /// Added By        : Junaid Hassan
@@ -337,8 +339,8 @@ namespace Jewar.Handler
                                     //    DSPCommissionAmount = ((Convert.ToDecimal(OrderAmount - intDeliveryFee) * DSPCommissionPercentage) / 100) + DSPFee;
                                     //}
                                 }
-                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OrderDateTime, notes) values('{0}','{1}','{2}','{3}','{4}','Pre-Order" + strCustVerified + "','broadwaypizza.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}', '{15}', 'Pre-Order, Delivery required at {16}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd H:mm"), Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd hh:mm tt")));
-                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OrderDateTime, notes, OriginalStatus, DSPID, DeliveryCommissionPercentage) values('{0}','{1}','{2}','{3}','{4}','{17}','broadwaypizza.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}', '{15}', 'Pre-Order, Delivery required at {16}', '{18}', '{19}', '{20}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd H:mm"), Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd hh:mm tt"), strCurrentStatus, strOriginalStatus, strDSPID, strDeliveryCommissionPercentage));
+                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OrderDateTime, notes) values('{0}','{1}','{2}','{3}','{4}','Pre-Order" + strCustVerified + "','jewar.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}', '{15}', 'Pre-Order, Delivery required at {16}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd H:mm"), Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd hh:mm tt")));
+                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OrderDateTime, notes, OriginalStatus, DSPID, DeliveryCommissionPercentage) values('{0}','{1}','{2}','{3}','{4}','{17}','jewar.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}', '{15}', 'Pre-Order, Delivery required at {16}', '{18}', '{19}', '{20}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd H:mm"), Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd hh:mm tt"), strCurrentStatus, strOriginalStatus, strDSPID, strDeliveryCommissionPercentage));
 
                                 if (PaymentType == "CreditCard")
                                 {
@@ -352,7 +354,7 @@ namespace Jewar.Handler
                                 }
 
                                 NewOrder = DBHandler.InsertDataWithIDForOrder(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OrderDateTime, notes, OriginalStatus, DSPID, DeliveryCommissionPercentage, DSPCommissionPercentage, DSPFee, DSPCommissionAmount, contactSource, SessionID, PaymentType, ConveniencePercentage, ConvenienceAmount, CreditCardDiscountPercentage, CreditCardDiscountAmount,IPAddress)" +
-                                                        "values('{0}','{1}','{2}','{3}','{4}','{17}','broadwaypizza.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}', '{15}', 'Pre-Order, Delivery required at {16}', '{18}', '{19}', '{20}', '{21}', '{22}', '{23}', '{24}', '{25}', '{26}', {27}, {28}, {29}, {30},'{31}')"
+                                                        "values('{0}','{1}','{2}','{3}','{4}','{17}','jewar.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}', '{15}', 'Pre-Order, Delivery required at {16}', '{18}', '{19}', '{20}', '{21}', '{22}', '{23}', '{24}', '{25}', '{26}', {27}, {28}, {29}, {30},'{31}')"
                                                         , customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd H:mm"), Convert.ToDateTime(PreOrderDeliveryTime).ToString("yyyy-MM-dd hh:mm tt"), strCurrentStatus, strOriginalStatus, strDSPID, strDeliveryCommissionPercentage, DSPCommissionPercentage, DSPFee, DSPCommissionAmount, contactSource, HttpContext.Current.Session.SessionID, PaymentType1, ConvenienceFeePercentage, ConvenienceFee, CreditCardDiscountPercentage, CreditCardDiscountAmount, ResponseIPAddress));
 
                                 /// ////////////////////////////////////////////// END  ////////////////////////////////////////////// 
@@ -389,8 +391,8 @@ namespace Jewar.Handler
                                     //}
                                 }
                                 
-                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder) values('{0}','{1}','{2}','{3}','{4}','Pending" + strCustVerified + "','broadwaypizza.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder));
-                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OriginalStatus, DSPID, DeliveryCommissionPercentage) values('{0}','{1}','{2}','{3}','{4}','{5}','broadwaypizza.com.pk','Web','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}', '{16}', '{17}', '{18}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, strCurrentStatus, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, strOriginalStatus, strDSPID, strDeliveryCommissionPercentage));
+                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder) values('{0}','{1}','{2}','{3}','{4}','Pending" + strCustVerified + "','jewar.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder));
+                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OriginalStatus, DSPID, DeliveryCommissionPercentage) values('{0}','{1}','{2}','{3}','{4}','{5}','jewar.com.pk','Web','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}', '{16}', '{17}', '{18}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, strCurrentStatus, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, strOriginalStatus, strDSPID, strDeliveryCommissionPercentage));
 
                                 if (PaymentType == "CreditCard")
                                 {
@@ -404,14 +406,14 @@ namespace Jewar.Handler
                                 }
 
                                 NewOrder = DBHandler.InsertDataWithIDForOrder(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder, OriginalStatus, DSPID, DeliveryCommissionPercentage, DSPCommissionPercentage, DSPFee, DSPCommissionAmount, contactSource, SessionID, PaymentType, ConveniencePercentage, ConvenienceAmount, CreditCardDiscountPercentage, CreditCardDiscountAmount, Created, ModifiedDate, IPAddress )" +
-                                    "values('{0}','{1}','{2}','{3}','{4}','{5}','broadwaypizza.com.pk','Web','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}', '{16}', '{17}', '{18}', '{19}', '{20}', '{21}', '{22}', '{23}', '{24}', {25}, {26}, {27}, {28},'{29}','{29}','{30}')"
+                                    "values('{0}','{1}','{2}','{3}','{4}','{5}','jewar.com.pk','Web','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}', '{16}', '{17}', '{18}', '{19}', '{20}', '{21}', '{22}', '{23}', '{24}', {25}, {26}, {27}, {28},'{29}','{29}','{30}')"
                                     , customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, strCurrentStatus, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder, strOriginalStatus, strDSPID, strDeliveryCommissionPercentage, DSPCommissionPercentage, DSPFee, DSPCommissionAmount, contactSource, HttpContext.Current.Session.SessionID, PaymentType1, ConvenienceFeePercentage, ConvenienceFee, CreditCardDiscountPercentage, CreditCardDiscountAmount, DateTime.Now.AddHours(Convert.ToDouble(System.Configuration.ConfigurationManager.AppSettings["AddHours"])).ToString("yyyy-MM-dd H:mm"), ResponseIPAddress));
                                 
 
 
                                 /// ////////////////////////////////////////////// START ////////////////////////////////////////////// 
-                                //NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder) values('{0}','{1}','{2}','{3}','{4}','Pending" + strCustVerified + "','broadwaypizza.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, Process.CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder));
-                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder) values('{0}','{1}','{2}','{3}','{4}','Pending" + strCustVerified + "','broadwaypizza.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder));
+                                //NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder) values('{0}','{1}','{2}','{3}','{4}','Pending" + strCustVerified + "','jewar.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, Process.CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder));
+                                // NewOrder = DBHandler.InsertDataWithID(String.Format("insert into orders(customerID,DeliveryAddress,DeliveryFee,OrderAmount,OutletID,Status,Source,Channel,OrderType,UserArea,Remarks,customerName,customerMobile,City, Discount, DeliveryTime, DeliveryTax, MinimumOrder) values('{0}','{1}','{2}','{3}','{4}','Pending" + strCustVerified + "','jewar.com.pk','Web','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", customerID, DeliveryAddress.Replace("'", "''"), DeliveryFee, OrderAmount, OutletID, MyOrderType, DeliveryArea, Notes, customerName.Replace("'", "''"), customerPhone, CityName, Discount, DeliveryTime, DeliveryTax, MinimumOrder));
                             }
                             /// /////////////////////////////////////// END  ///////////////////////////////////////                        
                             //Added end By Aman Mansoor on 15-Aug-2014 to extract the City from Outlet ID EAT-795
@@ -659,8 +661,8 @@ namespace Jewar.Handler
                                 string VerificationCode = GenerateVerificationCode();
 
                                 //lblCallUser.Text = "New user, call to verify. <a href='sip:" + txtPhone.Value + "' > " + txtPhone.Value + "</a> <br/>";
-                                SMSMessage = string.Format("Hey {0} Your order #{1} has been received by broadwaypizza! We will call you shortly to verify your phone number. Your bill is Rs. {2}. Track your order online: https://broadwaypizza.com.pk/track.aspx?t={1}", customerName, NewOrder, GrossTotal);
-                                //SMSMessage = string.Format("Hey {0} Your order #{1} has been received by broadwaypizza! Enter verification code: {2} on the website for quick processing of your order. Your bill is Rs. {3}", customerName, NewOrder, VerificationCode, GrossTotal);
+                                SMSMessage = string.Format("Hey {0} Your order #{1} has been received by jewar! We will call you shortly to verify your phone number. Your bill is Rs. {2}. Track your order online: https://jewar.com.pk/track.aspx?t={1}", customerName, NewOrder, GrossTotal);
+                                //SMSMessage = string.Format("Hey {0} Your order #{1} has been received by jewar! Enter verification code: {2} on the website for quick processing of your order. Your bill is Rs. {3}", customerName, NewOrder, VerificationCode, GrossTotal);
 
                                 strScreenMsg = "This is your first order, we will call you shortly from 111-486-479 to verify your mobile number.";
                                 //strScreenMsg = "As this is your first order with us we have sent you a SMS text with a verification PIN please enter below for quick processing.";
@@ -671,20 +673,20 @@ namespace Jewar.Handler
                             {
 
                                 //Commented and added by aman mansoor on 26-Feb-2014 to change pending message EAT-404
-                                //string SMSMessage = string.Format("Dear {0}, your food delivery order at {1} for a total of Rs. {2} has been received and will be confirmed shortly. orders cannot be cancelled. In case you have any difficulty with your order please contact broadwaypizza at 111-486479. Your Delivery Order #{3}", customerName, OutletName, GrossTotal.ToString(), NewOrder);                    
+                                //string SMSMessage = string.Format("Dear {0}, your food delivery order at {1} for a total of Rs. {2} has been received and will be confirmed shortly. orders cannot be cancelled. In case you have any difficulty with your order please contact jewar at 111-486479. Your Delivery Order #{3}", customerName, OutletName, GrossTotal.ToString(), NewOrder);                    
                                 //SMSMessage = string.Format("Hey {0} Your order #{1} has been received by {2} and we will notify you of the {3} time shortly.", customerName, NewOrder, OutletName.Split(',')[0], MyOrderType.Replace(" ", "").ToLower());
-                                SMSMessage = string.Format("Hey {0}, {2} is preparing your order #{1} and will confirm delivery shortly. Your bill is Rs. {3}. Track your order online: https://broadwaypizza.com.pk/track.aspx?t={1}", customerName, NewOrder, OutletName.Split(',')[0], GrossTotal);
+                                SMSMessage = string.Format("Hey {0}, {2} is preparing your order #{1} and will confirm delivery shortly. Your bill is Rs. {3}. Track your order online: https://jewar.com.pk/track.aspx?t={1}", customerName, NewOrder, OutletName.Split(',')[0], GrossTotal);
                                 // Message update by Junaid with reference of EAT-67 (Again old pending message was implemented by Aman Mansoor on 21-Feb-2014 to)
                                 //Commented and added end by aman mansoor on 26-Feb-2014 EAT-404
 
                                 if (strIsPreOrder == "Pre-Order")
                                 {
-                                    SMSMessage = string.Format("Hey {0}, your order #{1} will be sent to {2} as soon as the restaurant opens, the {3} time will be confirmed only then. Your bill is Rs. {4}. Track your order online: https://broadwaypizza.com.pk/track.aspx?t={1}", customerName, NewOrder, OutletName.Split(',')[0], MyOrderType.Replace(" ", "").ToLower(), GrossTotal);
+                                    SMSMessage = string.Format("Hey {0}, your order #{1} will be sent to {2} as soon as the restaurant opens, the {3} time will be confirmed only then. Your bill is Rs. {4}. Track your order online: https://jewar.com.pk/track.aspx?t={1}", customerName, NewOrder, OutletName.Split(',')[0], MyOrderType.Replace(" ", "").ToLower(), GrossTotal);
                                 }
                                 else
                                 {
                                     //SMSMessage = string.Format("Hey {0} Your order #{1} has been received by {2} and we will notify you of the {3} time shortly.", customerName, NewOrder, OutletName.Split(',')[0], MyOrderType.Replace(" ", "").ToLower());
-                                    SMSMessage = string.Format("Hey {0}, {2} is preparing your order #{1} and will confirm delivery shortly. Your bill is Rs. {3}. Track your order online: https://broadwaypizza.com.pk/track.aspx?t={1}", customerName, NewOrder, OutletName.Split(',')[0], GrossTotal);
+                                    SMSMessage = string.Format("Hey {0}, {2} is preparing your order #{1} and will confirm delivery shortly. Your bill is Rs. {3}. Track your order online: https://jewar.com.pk/track.aspx?t={1}", customerName, NewOrder, OutletName.Split(',')[0], GrossTotal);
                                     
                                 }
                             }
@@ -695,7 +697,7 @@ namespace Jewar.Handler
 
                         CurrTime = CurrTime.AddMinutes(Double.Parse(arrDelvTime[0]));
 
-                        //string SMSMessage = string.Format("Your order# {0} at {1} for a total of Rs. {2} has been accepted by the restaurant and will be delivered by {3}. orders once processed can not be canceled. In case you have any difficulty with your order, please contact broadwaypizza at 111-486479.", NewOrder, OutletName, GrossTotal.ToString(), CurrTime);
+                        //string SMSMessage = string.Format("Your order# {0} at {1} for a total of Rs. {2} has been accepted by the restaurant and will be delivered by {3}. orders once processed can not be canceled. In case you have any difficulty with your order, please contact jewar at 111-486479.", NewOrder, OutletName, GrossTotal.ToString(), CurrTime);
 
                         //if order is inserted then update the transaction and order count for the customer
                         if (NewOrder > 0)
@@ -870,11 +872,11 @@ namespace Jewar.Handler
                 return "{ \"success\": false, \"message\" : \"You are already subscibed to our weekly newsletter.\" }";
             }
             //add new email
-            string InsertSQL = "Insert into subscribers(email,city,source,channel) values('" + email + "','" + City + "','broadwaypizza.com.pk','Web')";
+            string InsertSQL = "Insert into subscribers(email,city,source,channel) values('" + email + "','" + City + "','jewar.com.pk','Web')";
             int Insert = DBHandler.InsertDataWithoutLogin(InsertSQL);
 
             //send email to user
-            //CodeLibrary.Email.SendMail("auto@broadwaypizza.com.pk", email, "Subscription Successfull!", "Welcome to broadwaypizza! \n\n You have been subscribed to our weekly newsletter", "broadwaypizza!");
+            //CodeLibrary.Email.SendMail("auto@jewar.com.pk", email, "Subscription Successfull!", "Welcome to jewar! \n\n You have been subscribed to our weekly newsletter", "jewar!");
             return "{ \"success\": true, \"message\" : \"You have been subscribed to our weekly newsletter.\" }";
         }
 
@@ -897,6 +899,73 @@ namespace Jewar.Handler
                 {
                     message = "{ \"success\": false, \"message\" : \"Invalid phone number or password.\" }";
                 }
+            }
+            return message;
+        }
+
+
+        [WebMethod]
+        public static string Test()
+        {
+            string s = "abc";
+
+
+            //var files = HttpContext.Current.Request.Form.Files; // Access uploaded files
+            //if (files.Count > 0)
+            //{
+            //    var uploadedFiles = new List<string>();
+
+            //    foreach (var file in files)
+            //    {
+            //        if (file.Length > 0)
+            //        {
+            //            var filePath = Path.Combine("YourUploadDirectory", file.FileName); // Replace with your directory
+            //            using (var stream = new FileStream(filePath, FileMode.Create))
+            //            {
+            //                //await file.CopyToAsync(stream);
+            //            }
+            //            uploadedFiles.Add(filePath);
+            //        }
+            //    }
+            //    return Ok("Files uploaded successfully");
+            //}
+            //else
+            //{
+            //    return BadRequest("No files uploaded");
+            //}
+
+            return s;
+        }
+
+
+        [WebMethod]
+        public static string AddProperty(string Title, string Description, string Category, string Listed, string Status, string Price, string YearlyTaxRate, string AfterPriceLabel, string VideoFrom, string EmbedVideoid, string VirtualTour, string Address, string State, string City, string Neighborhood, string Zip, string Country, string Latitude, string Longitude, string Size, string LotSize, string Rooms, string Bedrooms, string Bathrooms, string CustomID, string Garages, string GarageSize, string YearBuilt, string AvailableFrom, string Basement, string ExtraDetails, string Roofing, string ExteriorMaterial, string Structure, string Floors, string AgentNotes, string EnergyClass, string EnergyIndex, string Attic, string BasketballCourt, string AirConditioning, string Lawn, string SwimmingPool, string Barbeque, string Microwave, string TVCable, string Dryer, string OutdoorShower, string Washer, string Gym, string OceanView, string PrivateSpace, string LakeView, string WineCellar, string FrontYard, string Refrigerator, string WiFi, string Laundry, string Sauna)
+        {
+            string message = "";
+            //if (!checkForSQLInjection(Email) && !checkForSQLInjection(Password))
+            //{
+            //check existing email
+
+            string AgentID = HttpContext.Current.Session["ID"].ToString();
+            string InsertSQL = string.Format(@"insert  into `properties`(`AgentID`,`Title`,`Description`,`Category`,`Listed`,`Status`,`Price`,`YearlyTaxRate`,`AfterPriceLabel`,`VideoFrom`,`EmbedVideoid`,`VirtualTour`,
+`Address`,`State`,`City`,`Neighborhood`,`Zip`,`Country`,`Latitude`,`Longitude`,`Size`,`LotSize`,`Rooms`,`Bedrooms`,`Bathrooms`,`CustomID`,`Garages`,`GarageSize`,`YearBuilt`,`AvailableFrom`,`Basement`,`ExtraDetails`,`Roofing`,
+`ExteriorMaterial`,`Structure`,`Floors`,`AgentNotes`,`EnergyClass`,`EnergyIndex`,`Attic`,`BasketballCourt`,`AirConditioning`,`Lawn`,`SwimmingPool`,`Barbeque`,`Microwave`,`TVCable`,`Dryer`,`OutdoorShower`,`Washer`,`Gym`,
+`OceanView`,`PrivateSpace`,`LakeView`,`WineCellar`,`FrontYard`,`Refrigerator`,`WiFi`,`Laundry`,`Sauna`) 
+values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}','{32}',
+'{33}','{34}','{35}','{36}','{37}','{38}','{39}',{40},{41},{42},{43},{44},{45},{46},{47},{48},{49},{50},{51},{52},{53},{54},{55},{56},{57},{58},{59})",
+AgentID, Title, Description, Category, Listed, Status, Price, YearlyTaxRate, AfterPriceLabel, VideoFrom, EmbedVideoid, VirtualTour,
+Address, State, City, Neighborhood, Zip, Country, Latitude, Longitude, Size, LotSize, Rooms, Bedrooms, Bathrooms, CustomID, Garages, GarageSize, YearBuilt, AvailableFrom, Basement, ExtraDetails, Roofing,
+ExteriorMaterial, Structure, Floors, AgentNotes, EnergyClass, EnergyIndex, Attic, BasketballCourt, AirConditioning, Lawn, SwimmingPool, Barbeque, Microwave, TVCable, Dryer, OutdoorShower, Washer, Gym,
+OceanView, PrivateSpace, LakeView, WineCellar, FrontYard, Refrigerator, WiFi, Laundry, Sauna);
+            int Insert = DBHandler.InsertDataWithoutLogin(InsertSQL); //    if (dtSubscribe.Rows.Count > 0)
+            if (Insert > 0)
+            {
+                
+                message = "{ \"success\": true, \"message\" : \"Property added successfull.\" }";
+            }
+            else
+            {
+                message = "{ \"success\": false, \"message\" : \"Cannot add property at the moment.\" }";
             }
             return message;
         }
@@ -926,7 +995,7 @@ namespace Jewar.Handler
 
                      HttpContext.Current.Session["CustomerMobile"] = Number.Replace("'", "''");
 
-                     string SMSMessage = string.Format("Your Broadway website verification code is : {0} ", VerificationCode);
+                     string SMSMessage = string.Format("Your jewar website verification code is : {0} ", VerificationCode);
 
                      SMS.SendMessage(Number.Replace("'", "''"), SMSMessage);
 
@@ -974,7 +1043,7 @@ namespace Jewar.Handler
             {
                 string VerificationCode = dtSubscribe.Rows[0]["VerificationCode"].ToString();
 
-                string SMSMessage = string.Format("Your Broadway website verification code is : {0} ", VerificationCode);
+                string SMSMessage = string.Format("Your jewar website verification code is : {0} ", VerificationCode);
 
                 SMS.SendMessage(HttpContext.Current.Session["CustomerMobile"].ToString(), SMSMessage);
 
@@ -1011,7 +1080,7 @@ namespace Jewar.Handler
 
                     }
 
-                    string SMSMessage = string.Format("Your Broadway website passcode is {0} ", Password);
+                    string SMSMessage = string.Format("Your jewar website passcode is {0} ", Password);
 
                     SMS.SendMessage(Number.Replace("'", "''"), SMSMessage);
 

@@ -119,21 +119,22 @@
                      <div class="icon mb30"><span class="flaticon-upload"></span></div>
                      <h4 class="title fz17 mb10">Upload photos of your property</h4>
                      <p class="text mb25">Photos must be JPEG or PNG format and least 2048x768</p>
-                     <a class="ud-btn btn-white" href="#">Browse Files<i class="fal fa-arrow-right-long"></i></a>
+                     <%--<a class="ud-btn btn-white" href="#">Browse Files<i class="fal fa-arrow-right-long"></i></a>--%>
+
+
+
+                       <%--<label class="ud-btn btn-white">Browse Files<input id="fuPropertyImages" type="file" multiple="" class="ud-btn btn-white" style="display: none;" ,onChange:o=>r(o.target.files)></label>--%>
+
+                        <label class="ud-btn btn-white">Browse Files<input id="fuPropertyImages" type="file" multiple="" class="ud-btn btn-white" style="display: none;"></label>
+
+                        <button id="upload">Upload</button>
                    </div>
                  </div>
-                 <div class="col-lg-5">
-                   <div class="profile-box position-relative d-md-flex align-items-end mb50">
-                     <div class="profile-img position-relative overflow-hidden bdrs12 mb20-sm">
-                       <img class="w-100" src="images/listings/profile-1.jpg" alt="">
-                       <a href="#" class="tag-del" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete Image" aria-label="Delete Item"><span class="fas fa-trash-can"></span></a>
-                     </div>
-                     <div class="profile-img position-relative overflow-hidden bdrs12 ml20 ml0-sm">
-                       <img class="w-100" src="images/listings/profile-2.jpg" alt="">
-                       <a href="#" class="tag-del" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete Image" aria-label="Delete Item"><span class="fas fa-trash-can"></span></a>
-                     </div>
+                   <div class="col-lg-12 ">
+                       <div class="row profile-box position-relative d-md-flex align-items-end mb50 filearray">
+                          
+                       </div>
                    </div>
-                 </div>
                  <form class="form-style1">
                    <div class="row">
                      <h4 class="title fz17 mb30">Video Option</h4>
@@ -560,6 +561,78 @@
        </div>
      </div>
    </div>
+
+
+  <%--  <script>
+    $(document).on('ready', () => {
+        $("#fuPropertyImages").on('change', function () {
+            $(".filearray").empty();//you can remove this code if you want previous user input
+            for (let i = 0; i < this.files.length; ++i) {
+                let filereader = new FileReader();
+                //let $img = jQuery.parseHTML(@"<img src=''>");
+                //let $img1 =  "<div class='profile-img position-relative overflow-hidden bdrs12 ml20 ml0-sm'>";
+
+                //let $img = jQuery.parseHTML("<img class='w-100' src='' alt=''>");
+                //let $img2 =  "</div>";
+
+
+               // let img = "<div class='col-2'><div class='profile-img mb20 position-relative'>" ;
+               // let img1 = "<img class='w-100 bdrs12 cover'  src='images/listings/profile-1.jpg' alt='Uploaded Image 1'/>";
+               // let img2 = "<button class='tag-del' title='Delete Image' type='button' data-tooltip-id='delete-0' style='border: none;' fdprocessedid='6ujarj'><span class='fas fa-trash-can'></span></button></div></div>";
+
+                let img = jQuery.parseHTML(`<div class='col-2'><div class='profile-img mb20 position-relative'><img class='w-100 bdrs12 cover'  src='images/listings/profile-1.jpg' alt='Uploaded Image 1'/><button class='tag-del' title='Delete Image' id='btndeletepic' type='button' data-tooltip-id='delete-0' style='border: none;' fdprocessedid='6ujarj'><span class='fas fa-trash-can'></span></button></div></div>`);
+                filereader.onload = function () {
+                    //img[0].src = this.result;
+                    //const item = $(img).find('img')[0]
+                    //console.log(item)
+                    $(img).find('img')[0].src = this.result;
+                };
+                filereader.readAsDataURL(this.files[i]);
+                $(".filearray").append(img);
+                
+            }
+        });
+
+        //$('.filearray .tag-del').on('click', function () {
+        //    console.log(this)
+        //    const col2 = this.parent.parent
+        //    console.log(col2)
+        //})
+
+
+        $('body').on('click', '#btndeletepic', function (e) {
+            e.preventDefault();
+            //alert(1);
+            //console.log(this);
+            //const col2 = $(this).parent().parent();
+            console.log(col2)
+            $(this).parent().parent().remove();
+        });
+
+
+        $('#upload').on('click', function () {
+            var file_data = $('#file').prop('files')[0];
+            var form_data = new FormData();
+            form_data.append('file', file_data);
+            $.ajax({
+                url: 'http://localhost/ci/index.php/welcome/upload', // point to server-side controller method
+                dataType: 'text', // what to expect back from the server
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'post',
+                success: function (response) {
+                    $('#msg').html(response); // display success response from the server
+                },
+                error: function (response) {
+                    $('#msg').html(response); // display error response from the server
+                }
+            });
+        });
+
+    });
+</script>--%>
 
  
     </asp:Content>

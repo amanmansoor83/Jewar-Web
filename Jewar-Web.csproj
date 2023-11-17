@@ -206,10 +206,17 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Agent\AddProperty.aspx" />
+    <Content Include="Agent\page-dashboard-profile.html" />
+    <Content Include="Agent\Profile.aspx" />
+    <Content Include="Agent\Reviews.aspx" />
+    <Content Include="Agent\MyFavourites.aspx" />
+    <Content Include="Agent\MyProperties.aspx" />
     <Content Include="Agent\Login.aspx" />
     <Content Include="Agent\Dashboard.aspx" />
     <Content Include="Agent\page-dashboard-add-property.html" />
+    <Content Include="Agent\page-dashboard-favorites.html" />
     <Content Include="Agent\page-dashboard-message.html" />
+    <Content Include="Agent\page-dashboard-properties.html" />
     <Content Include="Agent\page-dashboard-review.html" />
     <Content Include="Agent\page-dashboard.html" />
     <Content Include="Agent\page-login.html" />
@@ -798,6 +805,34 @@
     </Compile>
     <Compile Include="Agent\AddProperty.aspx.designer.cs">
       <DependentUpon>AddProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agent\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agent\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agent\Reviews.aspx.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agent\Reviews.aspx.designer.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agent\MyFavourites.aspx.cs">
+      <DependentUpon>MyFavourites.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agent\MyFavourites.aspx.designer.cs">
+      <DependentUpon>MyFavourites.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agent\MyProperties.aspx.cs">
+      <DependentUpon>MyProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agent\MyProperties.aspx.designer.cs">
+      <DependentUpon>MyProperties.aspx</DependentUpon>
     </Compile>
     <Compile Include="Agent\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

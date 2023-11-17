@@ -35,12 +35,8 @@ namespace Jewar_API
                         HttpContext MyContext = HttpContext.Current;
                         //string[] Outlet = UrlParams[1].Split('/');
 
-
-
                         MyContext.RewritePath("/index.aspx");
 
-                        
-                        
                         return;
                     }
                     if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/dashboard"))
@@ -48,16 +44,60 @@ namespace Jewar_API
                         HttpContext MyContext = HttpContext.Current;
                         //string[] Outlet = UrlParams[1].Split('/');
 
-
-
                         MyContext.RewritePath("/Agent/Dashboard.aspx");
 
+                        return;
+                    }
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/addproperty"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
 
+                        MyContext.RewritePath("/Agent/AddProperty.aspx");
 
                         return;
                     }
 
-                   
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/myproperties"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/Agent/MyProperties.aspx");
+
+                        return;
+                    }
+
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/myfavourites"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/Agent/MyFavourites.aspx");
+
+                        return;
+                    }
+
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/reviews"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/Agent/Reviews.aspx");
+
+                        return;
+                    }
+
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/profle"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/Agent/Profile.aspx");
+
+                        return;
+                    }
+
                 }
             }
             catch (Exception ee) { }
