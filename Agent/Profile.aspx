@@ -36,72 +36,72 @@
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Username</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtUsername">
               </div>
             </div>
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Email</label>
-                <input type="email" class="form-control" placeholder="Your Name">
+                <input type="email" class="form-control" placeholder="Your Name" id="txtEmail">
               </div>
             </div>
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Phone</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtPhone">
               </div>
             </div>
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">First Name</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtFirstName">
               </div>
             </div>
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Last Name</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtLastName">
               </div>
             </div>
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Position</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtPosition">
               </div>
             </div>
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Language</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtLanguage">
               </div>
             </div>
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Company Name</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtCompanyName">
               </div>
             </div>
             <div class="col-sm-6 col-xl-4">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Tax Number</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtTaxNumber">
               </div>
             </div>
             <div class="col-xl-12">
               <div class="mb20">
                 <label class="heading-color ff-heading fw600 mb10">Address</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="txtAddress">
               </div>
             </div>
             <div class="col-md-12">
               <div class="mb10">
                 <label class="heading-color ff-heading fw600 mb10">About me</label>
-                <textarea cols="30" rows="4" placeholder="There are many variations of passages."></textarea>
+                <textarea cols="30" rows="4" placeholder="There are many variations of passages." id="txtAboutme"></textarea>
               </div>
             </div>
             <div class="col-md-12">
               <div class="text-end">
-                <a class="ud-btn btn-dark" href="page-contact.html">Update Profile<i class="fal fa-arrow-right-long"></i></a>
+                <a class="ud-btn btn-dark" href="#" id="btnUpdateProfile">Update Profile<i class="fal fa-arrow-right-long"></i></a>
               </div>
             </div>
           </div>
@@ -115,42 +115,42 @@
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">Facebook Url</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtFacebookUrl">
             </div>
           </div>
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">Pinterest Url</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtPinterestUrl">
             </div>
           </div>
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">Instagram Url</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtInstagramUrl">
             </div>
           </div>
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">Twitter Url</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtTwitterUrl">
             </div>
           </div>
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">Linkedin Url</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtLinkedinUrl">
             </div>
           </div>
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">Website Url (without http)</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtWebsiteUrl">
             </div>
           </div>
           <div class="col-md-12">
             <div class="text-end">
-              <a class="ud-btn btn-dark" href="page-contact.html">Update Social<i class="fal fa-arrow-right-long"></i></a>
+              <a class="ud-btn btn-dark"  href="#" id="btnUpdateSocial">Update Social<i class="fal fa-arrow-right-long"></i></a>
             </div>
           </div>
         </div>
@@ -163,7 +163,7 @@
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">Old Password</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtOldPassword">
             </div>
           </div>
         </div>
@@ -171,18 +171,18 @@
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">New Password</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtNewPassword">
             </div>
           </div>
           <div class="col-sm-6 col-xl-4">
             <div class="mb20">
               <label class="heading-color ff-heading fw600 mb10">Confirm New Password</label>
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" placeholder="Your Name" id="txtConfirmNewPassword">
             </div>
           </div>
           <div class="col-md-12">
             <div class="text-end">
-              <a class="ud-btn btn-dark" href="page-contact.html">Change Password<i class="fal fa-arrow-right-long"></i></a>
+              <a class="ud-btn btn-dark" href="#" id="btnChangePassword">Change Password<i class="fal fa-arrow-right-long"></i></a>
             </div>
           </div>
         </div>

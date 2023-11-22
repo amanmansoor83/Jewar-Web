@@ -36,8 +36,8 @@ select * from properties where agentid = '{0}'", AgentID));
             {
 
 
-                rptFavourites.DataSource = dtBanner;
-                rptFavourites.DataBind();
+                //rptFavourites.DataSource = dtBanner;
+                //rptFavourites.DataBind();
 
             }
         }

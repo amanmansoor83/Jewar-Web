@@ -609,6 +609,155 @@
         });
     });
 
+    $('body').on('click', '#btnUpdateProfile', function (e) {
+        e.preventDefault();
 
+
+        $('#btnUpdateProfile').html('Processing..');
+        $('#btnUpdateProfile').attr('disabled', 'true');
+
+
+        var Username = $('#txtUsername').val(),
+            Email = $('#txtEmail').val(),
+            FirstName = $('#txtFirstName').val(),
+            LastName = $('#txtLastName').val(),
+            Position = $('#txtPosition').val(),
+            Language = $('#txtLanguage').val(),
+            CompanyName = $('#txtCompanyName').val(),
+            TaxNumber = $('#txtTaxNumber').val(),
+            Address = $('#txtAddress').val(),
+            Aboutme = $('#txtAboutme').val();
+            //FacebookUrl = $('#txtFacebookUrl').val(),
+            //PinterestUrl = $('#txtPinterestUrl').val(),
+            //InstagramUrl = $('#txtInstagramUrl').val(),
+            //TwitterUrl = $('#txtTwitterUrl').val(),
+            //LinkedinUrl = $('#txtLinkedinUrl').val(),
+            //WebsiteUrl = $('#txtWebsiteUrl').val();
+
+
+        $.ajax({
+            url: '/Handler/Actions.aspx/UpdateProfile',
+            type: "POST",
+            //data: '{"OutletID":"' + OutletID + '","OutletName":"' + outletname + '","customerName":"' + username + '","customerPhone":"' + usernum + '","DeliveryAddress":"' + deliveryaddress + '","DeliveryFee":"' + deliveryfee + '","OrderType":"' + ordertype + '","DeliveryArea":"' + DeliveryArea + '","Notes":"' + notes + '","discount":"' + outletdiscount + '","otherdiscount":"0","tax":"' + outlettax + '","deliverytime":"' + deliverytime + '","PreOrderDeliveryTime":"' + PreOrderDeliveryTime + '"}',
+
+            data: '{"Username":"' + Username + '","Email":"' + Email + '","FirstName":"' + FirstName + '","LastName":"' + LastName + '","Position":"' + Position + '","Language":"' + Language + '","CompanyName":"' + CompanyName + '", "TaxNumber": "' + TaxNumber + '", "Address": "' + Address + '", "Aboutme": "' + Aboutme + '"}',
+
+
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                data = $.parseJSON(data.d);
+                //alert(data);
+                // Success
+                if (data.success) {
+                    $('#btnUpdateProfile').html('Update Profile');
+                    $('#btnUpdateProfile').removeAttr('disabled');
+                    //window.location.href = "/Agent/Dashboard";
+                }
+
+                else {
+                    //alert(data.message);
+                    M.toast({ html: data.message });
+
+
+                    $('#btnUpdateProfile').html('Update Profile');
+                    $('#btnUpdateProfile').removeAttr('disabled');
+                }
+            }
+        });
+    });
+
+    $('body').on('click', '#btnUpdateSocial', function (e) {
+        e.preventDefault();
+
+
+        $('#btnUpdateSocial').html('Processing..');
+        $('#btnUpdateSocial').attr('disabled', 'true');
+
+
+        var  FacebookUrl = $('#txtFacebookUrl').val(),
+        PinterestUrl = $('#txtPinterestUrl').val(),
+        InstagramUrl = $('#txtInstagramUrl').val(),
+        TwitterUrl = $('#txtTwitterUrl').val(),
+        LinkedinUrl = $('#txtLinkedinUrl').val(),
+        WebsiteUrl = $('#txtWebsiteUrl').val();
+
+
+        $.ajax({
+            url: '/Handler/Actions.aspx/UpdateSocial',
+            type: "POST",
+            //data: '{"OutletID":"' + OutletID + '","OutletName":"' + outletname + '","customerName":"' + username + '","customerPhone":"' + usernum + '","DeliveryAddress":"' + deliveryaddress + '","DeliveryFee":"' + deliveryfee + '","OrderType":"' + ordertype + '","DeliveryArea":"' + DeliveryArea + '","Notes":"' + notes + '","discount":"' + outletdiscount + '","otherdiscount":"0","tax":"' + outlettax + '","deliverytime":"' + deliverytime + '","PreOrderDeliveryTime":"' + PreOrderDeliveryTime + '"}',
+
+            data: '{"FacebookUrl":"' + FacebookUrl + '","PinterestUrl":"' + PinterestUrl + '","InstagramUrl":"' + InstagramUrl + '","TwitterUrl":"' + TwitterUrl + '","LinkedinUrl":"' + LinkedinUrl + '","WebsiteUrl":"' + WebsiteUrl + '"}',
+
+
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                data = $.parseJSON(data.d);
+                //alert(data);
+                // Success
+                if (data.success) {
+                    $('#btnUpdateSocial').html('Update Social');
+                    $('#btnUpdateSocial').removeAttr('disabled');
+                    //window.location.href = "/Agent/Dashboard";
+                }
+
+                else {
+                    //alert(data.message);
+                    M.toast({ html: data.message });
+
+
+                    $('#btnUpdateSocial').html('Update Social');
+                    $('#btnUpdateSocial').removeAttr('disabled');
+                }
+            }
+        });
+    });
+
+    $('body').on('click', '#btnChangePassword', function (e) {
+        e.preventDefault();
+
+
+        $('#btnChangePassword').html('Processing..');
+        $('#btnChangePassword').attr('disabled', 'true');
+
+
+        var OldPassword = $('#txtOldPassword').val(),
+            NewPassword = $('#txtNewPassword').val(),
+            ConfirmNewPassword = $('#txtConfirmNewPassword').val();
+
+
+        $.ajax({
+            url: '/Handler/Actions.aspx/ChangePassword',
+            type: "POST",
+            //data: '{"OutletID":"' + OutletID + '","OutletName":"' + outletname + '","customerName":"' + username + '","customerPhone":"' + usernum + '","DeliveryAddress":"' + deliveryaddress + '","DeliveryFee":"' + deliveryfee + '","OrderType":"' + ordertype + '","DeliveryArea":"' + DeliveryArea + '","Notes":"' + notes + '","discount":"' + outletdiscount + '","otherdiscount":"0","tax":"' + outlettax + '","deliverytime":"' + deliverytime + '","PreOrderDeliveryTime":"' + PreOrderDeliveryTime + '"}',
+
+            data: '{"OldPassword":"' + OldPassword + '","NewPassword":"' + NewPassword + '","ConfirmNewPassword":"' + ConfirmNewPassword + '"}',
+
+
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                data = $.parseJSON(data.d);
+                //alert(data);
+                // Success
+                if (data.success) {
+                    $('#btnChangePassword').html('Change Password');
+                    $('#btnChangePassword').removeAttr('disabled');
+                    //window.location.href = "/Agent/Dashboard";
+                }
+
+                else {
+                    //alert(data.message);
+                    M.toast({ html: data.message });
+
+
+                    $('#btnChangePassword').html('Change Password');
+                    $('#btnChangePassword').removeAttr('disabled');
+                }
+            }
+        });
+    });
 
 })(window.jQuery);
