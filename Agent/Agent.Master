@@ -68,7 +68,7 @@
           <div class="col-6 col-lg-auto">
             <div class="text-center text-lg-end header_right_widgets">
               <ul class="mb0 d-flex justify-content-center justify-content-sm-end p-0">
-                <li class="d-none d-sm-block"><a class="text-center mr15" href="page-login.html"><span class="flaticon-email"></span></a></li>
+                <li class="d-none d-sm-block"><a class="text-center mr15" href="Login"><span class="flaticon-email"></span></a></li>
                 <li class="d-none d-sm-block"><a class="text-center mr20 notif" href="#"><span class="flaticon-bell"></span></a></li>
                 <li class=" user_setting">
                   <div class="dropdown">
@@ -79,7 +79,7 @@
                       <div class="user_setting_content">
                         <p class="fz15 fw400 ff-heading mb20">MAIN</p>
                         <a class="dropdown-item active" href="Dashboard"><i class="flaticon-discovery mr10"></i>Dashboard</a>
-                        <a class="dropdown-item" href="page-dashboard-message.html"><i class="flaticon-chat-1 mr10"></i>Message</a>
+                        <a class="dropdown-item" href="Message"><i class="flaticon-chat-1 mr10"></i>Message</a>
                         <p class="fz15 fw400 ff-heading mt30">MANAGE LISTINGS</p>
                         <a class="dropdown-item" href="AddProperty"><i class="flaticon-new-tab mr10"></i>Add New Property 1</a>
                         <a class="dropdown-item" href="MyProperties"><i class="flaticon-home mr10"></i>My Properties</a>
@@ -89,7 +89,7 @@
                         <p class="fz15 fw400 ff-heading mt30">MANAGE ACCOUNT</p>
                         <a class="dropdown-item" href="page-dashboard-package.html"><i class="flaticon-protection mr10"></i>My Package</a>
                         <a class="dropdown-item" href="Profile"><i class="flaticon-user mr10"></i>My Profile</a>
-                        <a class="dropdown-item" href="page-login.html"><i class="flaticon-exit mr10"></i>Logout</a>
+                        <a class="dropdown-item" href="Login"><i class="flaticon-exit mr10"></i>Logout</a>
                       </div>
                     </div>
                   </div>
@@ -111,7 +111,7 @@
             <a href="Dashboard" class="items-center -is-active"><i class="flaticon-discovery mr15"></i>Dashboard</a>
           </div>
           <div class="sidebar_list_item ">
-            <a href="page-dashboard-message.html" class="items-center"><i class="flaticon-chat-1 mr15"></i>Message</a>
+            <a href="Message" class="items-center"><i class="flaticon-chat-1 mr15"></i>Message</a>
           </div>
           <p class="fz15 fw400 ff-heading mt30">MANAGE LISTINGS</p>
           <div class="sidebar_list_item ">
@@ -137,7 +137,7 @@
             <a href="Profile" class="items-center"><i class="flaticon-user mr15"></i>My Profile</a>
           </div>
           <div class="sidebar_list_item ">
-            <a href="page-login.html" class="items-center"><i class="flaticon-logout mr15"></i>Logout</a>
+            <a href="Login" class="items-center"><i class="flaticon-logout mr15"></i>Logout</a>
           </div>
         </div>
       </div>
@@ -150,7 +150,7 @@
                   <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
                   <ul id="myDropdown" class="dropdown-content">
                     <li class="active"><a href="Dashboard"><i class="flaticon-discovery mr10"></i>Dashboard</a></li>
-                    <li><a href="page-dashboard-message.html"><i class="flaticon-chat-1 mr10"></i>Message</a></li>
+                    <li><a href="Message"><i class="flaticon-chat-1 mr10"></i>Message</a></li>
                     <li><p class="fz15 fw400 ff-heading mt30 pl30">MANAGE LISTINGS</p></li>
                     <li><a href="AddProperty"><i class="flaticon-new-tab mr10"></i>Add New Property 3</a></li>
                     <li><a href="MyProperties"><i class="flaticon-home mr10"></i>My Properties</a></li>
@@ -160,7 +160,7 @@
                     <li><p class="fz15 fw400 ff-heading mt30 pl30">MANAGE ACCOUNT</p></li>
                     <li><a href="page-dashboard-package.html"><i class="flaticon-protection mr10"></i>My Package</a></li>
                     <li><a href="Profile"><i class="flaticon-user mr10"></i>My Profile</a></li>
-                    <li><a class="" href="page-login.html"><i class="flaticon-exit mr10"></i>Logout</a></li>
+                    <li><a class="" href="Login"><i class="flaticon-exit mr10"></i>Logout</a></li>
                   </ul>
                 </div>
               </div>

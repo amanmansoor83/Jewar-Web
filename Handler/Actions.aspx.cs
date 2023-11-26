@@ -33,7 +33,7 @@ namespace Jewar.Handler
                 DataTable dtSubscribe = DBHandler.GetData("SELECT * FROM users WHERE email = '" + Email.Replace("'", "''") + "' and password = '" + Cryptography.EncryptMessage(Password.Replace("'", "''")) + "'");
                 if (dtSubscribe.Rows.Count > 0)
                 {
-                    HttpContext.Current.Session["ID"] = dtSubscribe.Rows[0]["ID"].ToString();
+                    HttpContext.Current.Session["UserID"] = dtSubscribe.Rows[0]["ID"].ToString();
                     HttpContext.Current.Session["Type"] = dtSubscribe.Rows[0]["Type"].ToString();
 
                     if (dtSubscribe.Rows[0]["Type"].ToString() == "Agent")
@@ -110,7 +110,7 @@ namespace Jewar.Handler
             //{
             //check existing email
 
-            string AgentID = HttpContext.Current.Session["ID"].ToString();
+            string AgentID = HttpContext.Current.Session["AgentID"].ToString();
             string InsertSQL = string.Format(@"insert  into `properties`(`AgentID`,`Title`,`Description`,`Category`,`Listed`,`Status`,`Price`,`YearlyTaxRate`,`AfterPriceLabel`,`VideoFrom`,`EmbedVideoid`,`VirtualTour`,
 `Address`,`State`,`City`,`Neighborhood`,`Zip`,`Country`,`Latitude`,`Longitude`,`Size`,`LotSize`,`Rooms`,`Bedrooms`,`Bathrooms`,`CustomID`,`Garages`,`GarageSize`,`YearBuilt`,`AvailableFrom`,`Basement`,`ExtraDetails`,`Roofing`,
 `ExteriorMaterial`,`Structure`,`Floors`,`AgentNotes`,`EnergyClass`,`EnergyIndex`,`Attic`,`BasketballCourt`,`AirConditioning`,`Lawn`,`SwimmingPool`,`Barbeque`,`Microwave`,`TVCable`,`Dryer`,`OutdoorShower`,`Washer`,`Gym`,
@@ -223,7 +223,7 @@ values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
             //{
             //check existing email
             int Insert = 0; //
-            string AgentUserID = HttpContext.Current.Session["ID"].ToString();
+            string AgentUserID = HttpContext.Current.Session["UserID"].ToString();
             string InsertSQL = "";
 
             if (Convert.ToInt32(AgentUserID) > 0)

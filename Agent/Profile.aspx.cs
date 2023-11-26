@@ -23,9 +23,9 @@ namespace Jewar_API
         {
             string AgentID = "0";
 
-            if (Session["ID"] != null)
+            if (Session["AgentID"] != null)
             {
-                AgentID = Session["ID"].ToString();
+                AgentID = Session["AgentID"].ToString();
             }
 
 

@@ -11,7 +11,7 @@ namespace Jewar_API
 {
 
 
-    public partial class Message
+    public partial class Login
     {
     }
 }

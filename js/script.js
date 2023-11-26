@@ -406,7 +406,7 @@
                     if (data.success) {
 
                         window.location.href = "/Agent/Dashboard";
-                        $('#btnSignIn').html('Login');
+                        $('#btnSignIn').html('Sign in');
                         $('#btnSignIn').removeAttr('disabled');
                     }
 
@@ -415,7 +415,7 @@
                         //M.toast({ html: data.message });
 
                         alert(data.message);
-                        $('#btnSignIn').html('Login');
+                        $('#btnSignIn').html('Sign in');
                         $('#btnSignIn').removeAttr('disabled');
                     }
                 }
@@ -424,13 +424,79 @@
 
         }
         else {
-            $('#btnLogin').html('Login');
-            $('#btnLogin').removeAttr('disabled');
+            $('#btnSignIn').html('Sign in');
+            $('#btnSignIn').removeAttr('disabled');
         }
 
 
     });
 
+    $('body').on('click', '#btnSignIn1', function (e) {
+        e.preventDefault();
+
+        //alert('111');
+
+        var Validate = true;
+        if ($('#txtEmail1').val() == '') {
+            Validate = false;
+            $('#txtEmail1').addClass('field-error');
+        }
+        if ($('#txtPassword1').val() == '') {
+            Validate = false;
+            $('#txtPassword1').addClass('field-error');
+        }
+
+        if (Validate) {
+            $('#btnSignIn1').html('Processing..');
+            $('#btnSignIn1').attr('disabled', 'true');
+
+            var Email = $('#txtEmail1').val(),
+                Password = $('#txtPassword1').val();
+
+            //alert(txtEmail);
+
+            //alert(txtPassword);
+
+
+
+            $.ajax({
+                url: '/Handler/Actions.aspx/Login',
+                type: "POST",
+                //data: '{"OutletID":"' + OutletID + '","OutletName":"' + outletname + '","customerName":"' + username + '","customerPhone":"' + usernum + '","DeliveryAddress":"' + deliveryaddress + '","DeliveryFee":"' + deliveryfee + '","OrderType":"' + ordertype + '","DeliveryArea":"' + DeliveryArea + '","Notes":"' + notes + '","discount":"' + outletdiscount + '","otherdiscount":"0","tax":"' + outlettax + '","deliverytime":"' + deliverytime + '","PreOrderDeliveryTime":"' + PreOrderDeliveryTime + '"}',
+                data: '{"Email":"' + Email + '","Password":"' + Password + '"}',   //totalamount
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    data = $.parseJSON(data.d);
+                    //alert(data);
+                    // Success
+                    if (data.success) {
+
+                        window.location.href = "/Agent/Dashboard";
+                        $('#btnSignIn1').html('Sign in');
+                        $('#btnSignIn1').removeAttr('disabled');
+                    }
+
+                    else {
+                        //alert(data.message);
+                        //M.toast({ html: data.message });
+
+                        alert(data.message);
+                        $('#btnSignIn1').html('Sign in');
+                        $('#btnSignIn1').removeAttr('disabled');
+                    }
+                }
+            });
+
+
+        }
+        else {
+            $('#btnSignIn').html('Sign in');
+            $('#btnSignIn').removeAttr('disabled');
+        }
+
+
+    });
 
 
 

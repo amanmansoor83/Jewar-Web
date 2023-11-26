@@ -206,6 +206,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Agent\AddProperty.aspx" />
+    <Content Include="Agent\Message.aspx" />
     <Content Include="Agent\page-dashboard-profile.html" />
     <Content Include="Agent\Profile.aspx" />
     <Content Include="Agent\Reviews.aspx" />
@@ -805,6 +806,13 @@
     </Compile>
     <Compile Include="Agent\AddProperty.aspx.designer.cs">
       <DependentUpon>AddProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agent\Message.aspx.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agent\Message.aspx.designer.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
     </Compile>
     <Compile Include="Agent\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

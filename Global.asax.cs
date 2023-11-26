@@ -88,7 +88,7 @@ namespace Jewar_API
                         return;
                     }
 
-                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/profle"))
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/profile"))
                     {
                         HttpContext MyContext = HttpContext.Current;
                         //string[] Outlet = UrlParams[1].Split('/');
@@ -98,6 +98,25 @@ namespace Jewar_API
                         return;
                     }
 
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/message"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/Agent/Message.aspx");
+
+                        return;
+                    }
+
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/login"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/Agent/Login.aspx");
+
+                        return;
+                    }
                 }
             }
             catch (Exception ee) { }
