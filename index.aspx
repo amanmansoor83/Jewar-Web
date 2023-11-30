@@ -22,13 +22,13 @@
               <div class="advance-search-tab mt60 mt30-lg mx-auto animate-up-3">
                 <ul class="nav nav-tabs p-0 m-0" id="myTab" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Buy</button>
+                    <button class="nav-link active" id="btnBuySearch" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Buy</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Rent</button>
+                    <button class="nav-link" id="btnRentSearch" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Rent</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Sold</button>
+                    <button class="nav-link" id="btnSoldSearch" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Sold</button>
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -40,7 +40,7 @@
                             <form action="#" method="get" class="form-search position-relative" accept-charset="utf-8">
                               <div class="box-search">
                                 <span class="icon flaticon-home-1"></span>
-                                <input class="form-control bgc-f7 bdrs12" type="text" name="search" placeholder="Search products…">
+                                <input class="form-control bgc-f7 bdrs12" type="text" name="search" id="txtSearchBuyText" placeholder="Search products…">
                               </div>
                             </form>
                           </div>
@@ -48,7 +48,7 @@
                         <div class="col-md-4 col-lg-3">
                           <div class="d-flex align-items-center justify-content-start justify-content-md-center mt-3 mt-md-0">
                             <button class="advance-search-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="flaticon-settings"></span> Advanced</button>
-                            <button class="advance-search-icon ud-btn btn-dark ms-4" type="button"><span class="flaticon-search"></span></button>
+                            <button class="advance-search-icon ud-btn btn-dark ms-4" type="button" id="btnHomeBuySearch"><span class="flaticon-search"></span></button>
                           </div>
                         </div>
                       </div>
@@ -62,7 +62,7 @@
                             <form action="#" method="get" class="form-search position-relative" accept-charset="utf-8">
                               <div class="box-search">
                                 <span class="icon flaticon-home-1"></span>
-                                <input class="form-control bgc-f7 bdrs12" type="text" name="search" placeholder="Search products…">
+                                <input class="form-control bgc-f7 bdrs12" type="text" name="search" id="txtSearchRentText" placeholder="Search products…">
                               </div>
                             </form>
                           </div>
@@ -70,7 +70,7 @@
                         <div class="col-md-4 col-lg-3">
                           <div class="d-flex align-items-center justify-content-start justify-content-md-center mt-3 mt-md-0">
                             <button class="advance-search-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="flaticon-settings"></span> Advanced</button>
-                            <button class="advance-search-icon ud-btn btn-dark ms-4" type="button"><span class="flaticon-search"></span></button>
+                            <button class="advance-search-icon ud-btn btn-dark ms-4" type="button" id="btnHomeRentSearch"><span class="flaticon-search"></span></button>
                           </div>
                         </div>
                       </div>
@@ -84,7 +84,7 @@
                             <form action="#" method="get" class="form-search position-relative" accept-charset="utf-8">
                               <div class="box-search">
                                 <span class="icon flaticon-home-1"></span>
-                                <input class="form-control bgc-f7 bdrs12" type="text" name="search" placeholder="Search products…">
+                                <input class="form-control bgc-f7 bdrs12" type="text" name="search" id="txtSearchSoldText" placeholder="Search products…">
                               </div>
                             </form>
                           </div>
@@ -92,7 +92,7 @@
                         <div class="col-md-4 col-lg-3">
                           <div class="d-flex align-items-center justify-content-start justify-content-md-center mt-3 mt-md-0">
                             <button class="advance-search-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="flaticon-settings"></span> Advanced</button>
-                            <button class="advance-search-icon ud-btn btn-dark ms-4" type="button"><span class="flaticon-search"></span></button>
+                            <button class="advance-search-icon ud-btn btn-dark ms-4" type="button" id="btnHomeSoldSearch" ><span class="flaticon-search"></span></button>
                           </div>
                         </div>
                       </div>

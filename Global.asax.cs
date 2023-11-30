@@ -39,6 +39,15 @@ namespace Jewar_API
 
                         return;
                     }
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/listing"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/listing.aspx");
+
+                        return;
+                    }
                     if (Request.Url.AbsoluteUri.ToLower().Contains("/agent/dashboard"))
                     {
                         HttpContext MyContext = HttpContext.Current;

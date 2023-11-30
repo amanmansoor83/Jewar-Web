@@ -431,6 +431,69 @@
 
     });
 
+    $('body').on('click', '#btnHomeBuySearch', function (e) {
+        e.preventDefault();
+
+        //alert($('#txtSearchBuyText').val());
+        SearchHomePage('Buy', $('#txtSearchBuyText').val());
+
+    });
+    $('body').on('click', '#btnHomeRentSearch', function (e) {
+        e.preventDefault();
+
+        //alert($('#txtSearchBuyText').val());
+        SearchHomePage('Rent', $('#txtSearchRentText').val());
+
+    });
+    $('body').on('click', '#btnHomeSoldSearch', function (e) {
+        e.preventDefault();
+
+        //alert($('#txtSearchBuyText').val());
+        SearchHomePage('Sold', $('#txtSearchSoldText').val());
+
+    });
+
+    function SearchHomePage(searchtype, searchtext) {
+        //alert(searchtype);
+        //alert(searchtext);
+
+
+        //alert($('#chkSearchAttic').val())
+
+        //alert($('input[name=xbeds]:checked').val());
+
+        //'slider-range-value2'
+
+        var Price1 = $('#slider-range-value1').html(),
+            Price2 = $('#slider-range-value2').val(),
+            PropertyType = $('#drpPropertyType').val(),
+            PropertyID = $('#txtPropertyID').val(),
+            Location = $('#drpLocation').val(),
+            MinSqFeet = $('#txtMinSqFeet').val(),
+            MaxSqFeet = $('#txtMaxSqFeet').val(),
+            MaxSqFeet = $('#txtMaxSqFeet').val(),
+            Bedrooms = $('input[name=xbeds]:checked').val(),
+            Bathrooms = $('input[name=ybath]:checked').val(),
+            SearchAttic = $('#chkSearchAttic').val(),
+            SearchAirConditioning = $('#chkSearchAirConditioning').val(),
+            SearchLawn = $('#chkSearchLawn').val(),
+            SearchTVCable = $('#chkSearchTVCable').val(),
+            SearchDryer = $('#chkSearchDryer').val(),
+            SearchOutdoorShower = $('#chkSearchOutdoorShower').val(),
+            SearchWasher = $('#chkSearchWasher').val(),
+            SearchLakeview = $('#chkSearchLakeview').val(),
+            SearchWinecellar = $('#chkSearchWinecellar').val(),
+            SearchFrontyard = $('#chkSearchFrontyard').val(),
+            SearchRefrigerator = $('#chkSearchRefrigerator').val();
+
+
+
+        window.location.href = "listing";
+        
+    }
+
+
+
     $('body').on('click', '#btnSignIn1', function (e) {
         e.preventDefault();
 
