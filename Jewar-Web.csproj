@@ -633,6 +633,7 @@
     <Content Include="Images\testimonials\testimonial-5.png" />
     <Content Include="Images\testimonials\testimonial-6.png" />
     <Content Include="image\scale.html" />
+    <Content Include="listing.aspx" />
     <Content Include="index.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -758,6 +759,7 @@
     <Content Include="fonts\webfonts\fa-thin-100.woff2" />
     <Content Include="Agent\Agent.Master" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="page-property-half-map-v4.html" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
@@ -931,6 +933,13 @@
     </Compile>
     <Compile Include="AppAPIV2.aspx.designer.cs">
       <DependentUpon>AppAPIV2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listing.aspx.cs">
+      <DependentUpon>listing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listing.aspx.designer.cs">
+      <DependentUpon>listing.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

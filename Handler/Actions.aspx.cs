@@ -13,6 +13,7 @@ using Jewar.CodeLibrary;
 using System.Text;
 using Amazon.ElasticBeanstalk;
 using System.IO;
+using secureacceptance;
 
 namespace Jewar.Handler
 {
@@ -174,7 +175,7 @@ Address = '{8}', Aboutme = '{9}' , Modified = '{10}' where id = '{11}'",
             }
             return message;
         }
-                
+        
         [WebMethod]
         public static string UpdateSocial(string FacebookUrl, string PinterestUrl, string InstagramUrl, string TwitterUrl, string LinkedinUrl, string WebsiteUrl)
         {
@@ -247,6 +248,35 @@ values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
             }
             return message;
         }
+
+        [WebMethod]
+        public static string SearchHome(string SearchType, string SearchText, string Price1, string Price2, string PropertyType, string PropertyID, string Location, string MinSqFeet, string MaxSqFeet,  string Bedrooms, string Bathrooms, string SearchAttic, string SearchAirConditioning, string SearchLawn,   string SearchTVCable, string SearchDryer, string SearchOutdoorShower, string SearchWasher, string SearchLakeview,string SearchWinecellar, string SearchFrontyard, string SearchRefrigerator)        
+        {            
+            string message = "";
+            //if (!checkForSQLInjection(Email) && !checkForSQLInjection(Password))
+            //{
+            //check existing email
+            int Insert = 0;
+
+            string QueryString = string.Format(@"Price1={0}&Price2={1}&PropertyType={2}&PropertyID={3}&Location={4}&MinSqFeet={5}&MaxSqFeet={6}&Bedrooms={7}&Bathrooms={8}&SearchAttic={9}&SearchAirConditioning={10}
+                &SearchLawn={11}&SearchTVCable={12}&SearchDryer={13}&SearchOutdoorShower={14}&SearchWasher={15}&SearchLakeview={16}&SearchWinecellar={17}&SearchFrontyard={18}&SearchRefrigerator={19}&SearchType={20}&SearchText={21}",
+                Price1, Price2, PropertyType, PropertyID, Location, MinSqFeet, MaxSqFeet, Bedrooms, Bathrooms, SearchAttic, SearchAirConditioning, SearchLawn, SearchTVCable, SearchDryer, SearchOutdoorShower,
+             SearchWasher, SearchLakeview, SearchWinecellar, SearchFrontyard, SearchRefrigerator, SearchType, SearchText);
+
+            QueryString = Cryptography.EncryptMessage(QueryString);
+
+
+            if (Insert > 0)
+            {
+                message = "{ \"success\": true, \"message\" : \"" + QueryString +  "\"  }";
+            }
+            else
+            {
+                message = "{ \"success\": false, \"message\" : \"Cannot update profile at the moment.\" }";
+            }
+            return message;
+        }
+
 
 
         public static Boolean checkForSQLInjection(string userInput)

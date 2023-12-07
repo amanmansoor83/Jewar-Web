@@ -132,18 +132,25 @@
       <div class="row">
         <div class="col-lg-12 wow fadeInUp" data-wow-delay="300ms">
           <div class="property-city-slider style2 dots_none slider-dib-sm slider-6-grid vam_nav_style owl-theme owl-carousel">
+                <asp:Repeater ID="rptPropertiesbyCities" runat="server">
+      <ItemTemplate>
+
+
             <div class="item">
               <a href="page-property-single-v1.html">
                 <div class="feature-style3 mb30 text-center">
                   <div class="feature-img rounded-circle"><img class="w-100" src="images/listings/cp-m-1.png" alt=""></div>
                   <div class="feature-content pt25">
-                    <h6 class="title mb-1">New York</h6>
-                    <p class="fz15 fw400 dark-color mb-0">12 Properties</p>
+                    <h6 class="title mb-1"><%#Eval("City") %></h6>
+                    <p class="fz15 fw400 dark-color mb-0"><%#Eval("TotalProperties") %> Properties</p>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="item">
+               </ItemTemplate>
+ </asp:Repeater>
+
+          <%--  <div class="item">
               <a href="page-property-single-v1.html">
                 <div class="feature-style3 mb30 text-center">
                   <div class="feature-img rounded-circle"><img class="w-100" src="images/listings/cp-m-2.png" alt=""></div>
@@ -197,7 +204,7 @@
                   </div>
                 </div>
               </a>
-            </div>
+            </div>--%>
           </div>
         </div>
       </div>

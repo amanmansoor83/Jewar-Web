@@ -471,7 +471,6 @@
             Location = $('#drpLocation').val(),
             MinSqFeet = $('#txtMinSqFeet').val(),
             MaxSqFeet = $('#txtMaxSqFeet').val(),
-            MaxSqFeet = $('#txtMaxSqFeet').val(),
             Bedrooms = $('input[name=xbeds]:checked').val(),
             Bathrooms = $('input[name=ybath]:checked').val(),
             SearchAttic = $('#chkSearchAttic').val(),
@@ -488,8 +487,45 @@
 
 
 
-        window.location.href = "listing";
-        
+      //  window.location.href = "listing";
+
+         
+
+
+
+
+
+        $.ajax({
+            url: '/Handler/Actions.aspx/SearchHome',
+            type: "POST",
+            //data: '{"OutletID":"' + OutletID + '","OutletName":"' + outletname + '","customerName":"' + username + '","customerPhone":"' + usernum + '","DeliveryAddress":"' + deliveryaddress + '","DeliveryFee":"' + deliveryfee + '","OrderType":"' + ordertype + '","DeliveryArea":"' + DeliveryArea + '","Notes":"' + notes + '","discount":"' + outletdiscount + '","otherdiscount":"0","tax":"' + outlettax + '","deliverytime":"' + deliverytime + '","PreOrderDeliveryTime":"' + PreOrderDeliveryTime + '"}',
+            data: '{"SearchType":"' + searchtype + '","SearchText":"' + searchtext + '","Price1":"' + Price1 + '","Price2":"' + Price2 + '","PropertyType":"' + PropertyType + '","PropertyID":"' + PropertyID + '","Location":"' + Location + '","MinSqFeet":"' + MinSqFeet + '","MaxSqFeet":"' + MaxSqFeet + '","Bedrooms": "' + Bedrooms + '","Bathrooms": "' + Bathrooms + '","SearchAttic": "' + SearchAttic + '","SearchAirConditioning": "' + SearchAirConditioning + '","SearchLawn": "' + SearchLawn + '","SearchTVCable": "' + SearchTVCable + '","SearchDryer": "' + SearchDryer + '","SearchOutdoorShower": "' + SearchOutdoorShower + '","SearchWasher": "' + SearchWasher + '","SearchLakeview": "' + SearchLakeview + '","SearchWinecellar": "' + SearchWinecellar + '","SearchFrontyard": "' + SearchFrontyard + '","SearchRefrigerator": "' + SearchRefrigerator + '"}',  
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                data = $.parseJSON(data.d);
+                //alert(data);
+                // Success
+                if (data.success) {
+                    alert(data.message);
+                    window.location.href = "listing?p=" + data.message;
+                    $('#btnSignIn1').html('Sign in');
+                    $('#btnSignIn1').removeAttr('disabled');
+                }
+
+                else {
+                    //alert(data.message);
+                    //M.toast({ html: data.message });
+
+                    alert(data.message);
+                    $('#btnSignIn1').html('Sign in');
+                    $('#btnSignIn1').removeAttr('disabled');
+                }
+            }
+        });
+
+
+
     }
 
 

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Jewar.CodeLibrary;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +13,26 @@ namespace Jewar_API
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                string SearchQuery = "";
+
+                if (Request["p"] != null)
+                {
+                    SearchQuery = Cryptography.DecryptMessage(Request["p"].ToString());
+
+
+                    DataTable dtSearchResult = DBHandler.GetData(string.Format("select * from properties where {0}", SearchQuery));
+                    if (dtSearchResult != null)
+                    {
+                        if (dtSearchResult.Rows.Count > 0)
+                        {
+                            rptSearchList.DataSource = dtSearchResult;
+                            rptSearchList.DataBind();
+                        }
+                    }
+                }
+            }
         }
          
     }
