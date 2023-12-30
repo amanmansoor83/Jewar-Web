@@ -67,7 +67,10 @@ namespace Jewar_API
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["AgentID"] == null)
+            {
+                Response.Redirect("/Agent/Login");
+            }
         }
     }
 }

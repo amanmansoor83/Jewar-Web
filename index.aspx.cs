@@ -33,6 +33,22 @@ select City, count(ID) as TotalProperties from properties group by city"));
                 rptPropertiesbyCities.DataBind();
 
             }
+
+
+
+
+
+            DataTable dtPopularProerties = DBHandler.GetData(string.Format(@"
+select City, count(ID) as TotalProperties from properties group by city"));
+
+            if (dtProerties.Rows.Count > 0)
+            {
+
+
+                rptPropertiesbyCities.DataSource = dtProerties;
+                rptPropertiesbyCities.DataBind();
+
+            }
         }
 
     }

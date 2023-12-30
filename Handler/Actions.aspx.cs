@@ -44,55 +44,84 @@ namespace Jewar.Handler
                         if (dtSubscribe.Rows.Count > 0)
                         {
                             HttpContext.Current.Session["AgentID"] = dtSubscribe.Rows[0]["ID"].ToString();
+                            HttpContext.Current.Session["AgentImage"] = dtSubscribe.Rows[0]["Image"].ToString();
+                            HttpContext.Current.Session["AgentName"] = dtSubscribe.Rows[0]["FirstName"].ToString() + " " + dtSubscribe.Rows[0]["LastName"].ToString();
+
+                            message = "{ \"success\": true, \"message\" : \"Login successfull.\" }";
                         }
 
                     }
+                    else
+                    {
+                        message = "{ \"success\": false, \"message\" : \"Invalid username or password.\" }";
+                    }
 
-                    message = "{ \"success\": true, \"message\" : \"Login successfull.\" }";
                 }
                 else
                 {
-                    message = "{ \"success\": false, \"message\" : \"Invalid phone number or password.\" }";
+                    message = "{ \"success\": false, \"message\" : \"Invalid username or password.\" }";
                 }
             }
             return message;
         }
 
 
-        [WebMethod]
-        public static string Test(HttpContext context)
+        [WebMethod] 
+        public static string Test()
         {
             string s1 = "abc";
 
-
-            context.Response.ContentType = "text/plain";
             try
             {
-                string dirFullPath = HttpContext.Current.Server.MapPath("~/MediaUploader/");
-                string[] files;
-                int numFiles;
-                files = System.IO.Directory.GetFiles(dirFullPath);
-                numFiles = files.Length;
-                numFiles = numFiles + 1;
-                string str_image = "";
+                HttpRequest request = HttpContext.Current.Request;
 
-                foreach (string s in context.Request.Files)
+                if (request.Files.Count > 0)
                 {
-                    HttpPostedFile file = context.Request.Files[s];
-                    string fileName = file.FileName;
-                    string fileExtension = file.ContentType;
 
-                    if (!string.IsNullOrEmpty(fileName))
+                    HttpPostedFile uploadedFile = request.Files[0];
+
+                    if (uploadedFile != null && uploadedFile.ContentLength > 0)
                     {
-                        fileExtension = Path.GetExtension(fileName);
-                        str_image = "MyPHOTO_" + numFiles.ToString() + fileExtension;
-                        string pathToSave_100 = HttpContext.Current.Server.MapPath("~/MediaUploader/") + str_image;
-                        file.SaveAs(pathToSave_100);
-                    }
-                }
-                //  database record update logic here  ()
+                        string fileName = Path.GetFileName(uploadedFile.FileName);
+                        string filePath = HttpContext.Current.Server.MapPath("~/UploadedFiles/" + fileName);
+                        uploadedFile.SaveAs(filePath);
 
-                context.Response.Write(str_image);
+                        return "File uploaded successfully";
+                    }
+
+
+                    //string s1 = "abc";
+
+
+                    //context.Response.ContentType = "text/plain";
+                    //try
+                    //{
+                    //    string dirFullPath = HttpContext.Current.Server.MapPath("~/MediaUploader/");
+                    //    string[] files;
+                    //    int numFiles;
+                    //    files = System.IO.Directory.GetFiles(dirFullPath);
+                    //    numFiles = files.Length;
+                    //    numFiles = numFiles + 1;
+                    //    string str_image = "";
+
+                    //    foreach (string s in context.Request.Files)
+                    //    {
+                    //        HttpPostedFile file = context.Request.Files[s];
+                    //        string fileName = file.FileName;
+                    //        string fileExtension = file.ContentType;
+
+                    //        if (!string.IsNullOrEmpty(fileName))
+                    //        {
+                    //            fileExtension = Path.GetExtension(fileName);
+                    //            str_image = "MyPHOTO_" + numFiles.ToString() + fileExtension;
+                    //            string pathToSave_100 = HttpContext.Current.Server.MapPath("~/MediaUploader/") + str_image;
+                    //            file.SaveAs(pathToSave_100);
+                    //        }
+                    //    }
+                    //    //  database record update logic here  ()
+
+                    //    context.Response.Write(str_image);
+                }
             }
             catch (Exception ac)
             {
@@ -104,7 +133,7 @@ namespace Jewar.Handler
 
 
         [WebMethod]
-        public static string AddProperty(string Title, string Description, string Category, string Listed, string Status, string Price, string YearlyTaxRate, string AfterPriceLabel, string VideoFrom, string EmbedVideoid, string VirtualTour, string Address, string State, string City, string Neighborhood, string Zip, string Country, string Latitude, string Longitude, string Size, string LotSize, string Rooms, string Bedrooms, string Bathrooms, string CustomID, string Garages, string GarageSize, string YearBuilt, string AvailableFrom, string Basement, string ExtraDetails, string Roofing, string ExteriorMaterial, string Structure, string Floors, string AgentNotes, string EnergyClass, string EnergyIndex, string Attic, string BasketballCourt, string AirConditioning, string Lawn, string SwimmingPool, string Barbeque, string Microwave, string TVCable, string Dryer, string OutdoorShower, string Washer, string Gym, string OceanView, string PrivateSpace, string LakeView, string WineCellar, string FrontYard, string Refrigerator, string WiFi, string Laundry, string Sauna)
+        public static string AddProperty(string Title, string Description, string Category, string Listed, string Status, string Price, string YearlyTaxRate, string AfterPriceLabel, string VideoFrom, string EmbedVideoid, string VirtualTour, string Address, string State, string City, string Neighborhood, string Zip, string Country, string Latitude, string Longitude, string Size, string LotSize, string Rooms, string Bedrooms, string Bathrooms, string CustomID, string Garages, string GarageSize, string YearBuilt, string AvailableFrom, string Basement, string ExtraDetails, string Roofing, string ExteriorMaterial, string Structure, string Floors, string AgentNotes, string EnergyClass, string EnergyIndex, string Attic, string BasketballCourt, string AirConditioning, string Lawn, string SwimmingPool, string Barbeque, string Microwave, string TVCable, string Dryer, string OutdoorShower, string Washer, string Gym, string OceanView, string PrivateSpace, string LakeView, string WineCellar, string FrontYard, string Refrigerator, string WiFi, string Laundry, string Sauna, string ImageLinks)
         {
             string message = "";
             //if (!checkForSQLInjection(Email) && !checkForSQLInjection(Password))
@@ -112,6 +141,9 @@ namespace Jewar.Handler
             //check existing email
 
             string AgentID = HttpContext.Current.Session["AgentID"].ToString();
+
+
+
             string InsertSQL = string.Format(@"insert  into `properties`(`AgentID`,`Title`,`Description`,`Category`,`Listed`,`Status`,`Price`,`YearlyTaxRate`,`AfterPriceLabel`,`VideoFrom`,`EmbedVideoid`,`VirtualTour`,
 `Address`,`State`,`City`,`Neighborhood`,`Zip`,`Country`,`Latitude`,`Longitude`,`Size`,`LotSize`,`Rooms`,`Bedrooms`,`Bathrooms`,`CustomID`,`Garages`,`GarageSize`,`YearBuilt`,`AvailableFrom`,`Basement`,`ExtraDetails`,`Roofing`,
 `ExteriorMaterial`,`Structure`,`Floors`,`AgentNotes`,`EnergyClass`,`EnergyIndex`,`Attic`,`BasketballCourt`,`AirConditioning`,`Lawn`,`SwimmingPool`,`Barbeque`,`Microwave`,`TVCable`,`Dryer`,`OutdoorShower`,`Washer`,`Gym`,
@@ -125,7 +157,18 @@ OceanView, PrivateSpace, LakeView, WineCellar, FrontYard, Refrigerator, WiFi, La
             int Insert = DBHandler.InsertDataWithoutLogin(InsertSQL); //    if (dtSubscribe.Rows.Count > 0)
             if (Insert > 0)
             {
-                
+                ImageLinks = ImageLinks.TrimEnd(',');
+                string[] ImageLinkSingle = ImageLinks.Split(',');
+
+                if (ImageLinkSingle.Length > 0)
+                {
+                    for (int a = 0; a < ImageLinkSingle.Length; a++)
+                    {
+                        int Insert1 = DBHandler.InsertDataWithoutLogin(string.Format("insert into propertyimages (ImageURL, PropertyID)values('{0}','{1}')", Insert, ImageLinkSingle[a])); //    i
+                    }
+                }
+
+
                 message = "{ \"success\": true, \"message\" : \"Property added successfull.\" }";
             }
             else

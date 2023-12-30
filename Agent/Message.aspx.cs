@@ -31,7 +31,7 @@ namespace Jewar_API
 
 
             DataTable dtBanner = DBHandler.GetData(string.Format(@"
-select * from chats c inner join agents a on c.agenttoid = a.id where AgentFromID = '{0}'", AgentID));
+select * from chat c inner join agent a on c.agenttoid = a.id where AgentFromID = '{0}'", AgentID));
 
             if (dtBanner.Rows.Count > 0)
             {

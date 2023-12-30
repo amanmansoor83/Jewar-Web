@@ -11,25 +11,16 @@ namespace Jewar_API
 {
 
 
-    public partial class index
+    public partial class detail
     {
 
         /// <summary>
-        /// rptPropertiesbyCities control.
+        /// rptPropertyImages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptPropertiesbyCities;
-
-        /// <summary>
-        /// rptPopularProperties control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptPopularProperties;
+        protected global::System.Web.UI.WebControls.Repeater rptPropertyImages;
     }
 }

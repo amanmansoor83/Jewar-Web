@@ -55,7 +55,7 @@
             <div class="log-reg-form signup-modal form-style1 bgc-white p50 p30-sm default-box-shadow2 bdrs12">
               <div class="text-center mb40">
                 <img class="mb25" src="../images/header-logo2.svg" alt="">
-                <h2>Sign in</h2>
+                <h2>Create account</h2>
                 <p class="text">Sign in with this account across the following sites.</p>
               </div>
               <div class="mb25">
@@ -64,19 +64,19 @@
               </div>
               <div class="mb15">
                 <label class="form-label fw600 dark-color">Password</label>
-                <input type="text" class="form-control" placeholder="Enter Password"  id="txtPassword1" >
+                <input type="password" class="form-control" placeholder="Enter Password"  id="txtPassword1" >
               </div>
               <div class="checkbox-style1 d-block d-sm-flex align-items-center justify-content-between mb10">
                 <label class="custom_checkbox fz14 ff-heading">Remember me
                   <input type="checkbox" checked="checked">
                   <span class="checkmark"></span>
                 </label>
-                <a class="fz14 ff-heading" href="../#">Lost your password?</a>
+                <%--<a class="fz14 ff-heading" href="../#">Lost your password?</a>--%>
               </div>
               <div class="d-grid mb20">
                 <button class="ud-btn btn-thm" type="button" id="btnSignIn1">Sign in <i class="fal fa-arrow-right-long"></i></button>
               </div>
-              <div class="hr_content mb20"><hr><span class="hr_top_text">OR</span></div>
+             <%-- <div class="hr_content mb20"><hr><span class="hr_top_text">OR</span></div>
               <div class="d-grid mb10">
                 <button class="ud-btn btn-white fw400" type="button"><i class="fab fa-google"></i> Continue Google</button>
               </div>
@@ -86,7 +86,7 @@
               <div class="d-grid mb20">
                 <button class="ud-btn btn-apple fw400" type="button"><i class="fab fa-apple"></i> Continue Apple</button>
               </div>
-              <p class="dark-color text-center mb0 mt10">Not signed up? <a class="dark-color fw600" href="../page-register.html">Create an account.</a></p>
+              <p class="dark-color text-center mb0 mt10">Not signed up? <a class="dark-color fw600" href="../page-register.html">Create an account.</a></p>--%>
             </div>
           </div>
         </div>

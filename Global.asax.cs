@@ -30,12 +30,33 @@ namespace Jewar_API
                 string[] UrlQueryString = Request.RawUrl.Split('?');
                 if (!CurrentPath.Contains(".aspx"))
                 {
+
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/index.aspx"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/index");
+
+                        return;
+                    }
+
+
                     if (Request.Url.AbsoluteUri.ToLower().Contains("/index"))
                     {
                         HttpContext MyContext = HttpContext.Current;
                         //string[] Outlet = UrlParams[1].Split('/');
 
                         MyContext.RewritePath("/index.aspx");
+
+                        return;
+                    }
+                    if (Request.Url.AbsoluteUri.ToLower().Contains("/Agent/Login"))
+                    {
+                        HttpContext MyContext = HttpContext.Current;
+                        //string[] Outlet = UrlParams[1].Split('/');
+
+                        MyContext.RewritePath("/Agent/Login.aspx");
 
                         return;
                     }

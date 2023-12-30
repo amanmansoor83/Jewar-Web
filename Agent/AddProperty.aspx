@@ -101,12 +101,12 @@
                          <input type="text" class="form-control" placeholder="Your Name" id="txtAfterPriceLabel">
                        </div>
                      </div>
-                     <div class="col-md-12">
+                     <%--<div class="col-md-12">
                        <div class="d-sm-flex justify-content-between">
                          <a class="ud-btn btn-white" href="#">Prev Step<i class="fal fa-arrow-right-long"></i></a>
-                         <a class="ud-btn btn-dark" href="#">Next Step<i class="fal fa-arrow-right-long"></i></a>
+                         <a class="ud-btn btn-dark" href="#nav-item2">Next Step<i class="fal fa-arrow-right-long"></i></a>
                        </div>
-                     </div>
+                     </div>--%>
                    </div>
                  </form>
                </div>
@@ -128,6 +128,8 @@
                         <label class="ud-btn btn-white">Browse Files<input id="fuPropertyImages" type="file" multiple="" class="ud-btn btn-white" style="display: none;"></label>
 
                         <button id="upload">Upload</button>
+
+                       <input id="fileSelect1111" type="file"  name="files[]" multiple="multiple" accept="image/*" />
                    </div>
                  </div>
                    <div class="col-lg-12 ">
@@ -165,12 +167,12 @@
                          <input type="text" class="form-control" placeholder="Virtual Tour" id="txtVirtualTour">
                        </div>
                      </div>
-                     <div class="col-md-12">
+                     <%--<div class="col-md-12">
                        <div class="d-sm-flex justify-content-between">
                          <a class="ud-btn btn-white" href="#">Prev Step<i class="fal fa-arrow-right-long"></i></a>
                          <a class="ud-btn btn-dark" href="#">Next Step<i class="fal fa-arrow-right-long"></i></a>
                        </div>
-                     </div>
+                     </div>--%>
                    </div>
                  </form>
                </div>
@@ -272,12 +274,12 @@
                          <input type="text" class="form-control" placeholder="" id="txtLongitude">
                        </div>
                      </div>
-                     <div class="col-md-12">
+                     <%--<div class="col-md-12">
                        <div class="d-sm-flex justify-content-between">
                          <a class="ud-btn btn-white" href="#">Prev Step<i class="fal fa-arrow-right-long"></i></a>
                          <a class="ud-btn btn-dark" href="#">Next Step<i class="fal fa-arrow-right-long"></i></a>
                        </div>
-                     </div>
+                     </div>--%>
                    </div>
                  </form>
                </div>
@@ -437,12 +439,12 @@
                          </div>
                        </div>
                      </div>
-                     <div class="col-md-12">
+                    <%-- <div class="col-md-12">
                        <div class="d-sm-flex justify-content-between">
                          <a class="ud-btn btn-white" href="#">Prev Step<i class="fal fa-arrow-right-long"></i></a>
                          <a class="ud-btn btn-dark" href="#">Next Step<i class="fal fa-arrow-right-long"></i></a>
                        </div>
-                     </div>
+                     </div>--%>
                    </div>
                  </form>
                </div>
@@ -549,7 +551,7 @@
                    </div>
                    <div class="col-md-12 mt30">
                      <div class="d-sm-flex justify-content-between">
-                       <a class="ud-btn btn-white" href="#">Prev Step<i class="fal fa-arrow-right-long"></i></a>
+                       <%--<a class="ud-btn btn-white" href="#">Prev Step<i class="fal fa-arrow-right-long"></i></a>--%>
                        <a class="ud-btn btn-thm" href="#" id="btnSubmitProperty">Submit Property<i class="fal fa-arrow-right-long"></i></a>
                      </div>
                    </div>

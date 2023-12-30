@@ -431,6 +431,22 @@
 
     });
 
+
+    $("#txtPassword").keyup(function (event) {
+        if (event.keyCode === 13) {
+            $("#btnSignIn").click();
+        }
+    });
+
+
+    $("#txtPassword1").keyup(function (event) {
+        if (event.keyCode === 13) {
+           $("#btnSignIn1").click();
+           //alert('22');
+        }
+    });
+
+
     $('body').on('click', '#btnHomeBuySearch', function (e) {
         e.preventDefault();
 
@@ -637,37 +653,70 @@
     });
 
 
+    const s3 = new AWS.S3();
+    AWS.config.update({
+        accessKeyId: 'AKIA2MSTGSWEPW4ZT4U5',
+        secretAccessKey: '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',
+        region: 'ap-southeast-1'
+    });
+
+
+
     $('#upload').on('click', function () {
-        alert('112');
-        console.log($('#fuPropertyImages').prop('files')[0]);
-        var file_data = $('#fuPropertyImages').prop('files')[0];
-        var form_data = new FormData();
+      
+
+        //const file = $('#fileSelect1111')[0].files[0];
+        //const fileName = file.name;
+        //const fileKey =  fileName; // The S3 key where you want to store the file
+        ////alert(fileName + '123');
+        //const params = {
+        //    Bucket: 'jewarcdn',
+        //    Key: fileKey,
+        //    Body: file,
+        //    ACL: 'public-read' // Set appropriate permissions for your use case
+        //};
+
+        //// Upload file to S3
+        //s3.upload(params, function (err, data) {
+        //    if (err) {
+        //        console.log('Error uploading:', err);
+        //    } else {
+        //        console.log('Upload successful! File location:', data.Location);
+        //        // Here, you can do something with the uploaded file's URL (data.Location)
+        //    }
+        //});
 
 
-        var fileInput = document.getElementById('#fuPropertyImages');
-        var files = fileInput.files;
-        var formData = new FormData();
+        const files = $('#fileSelect1111')[0].files;
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const fileName = file.name;
+            const fileKey =  fileName; // The S3 key where you want to store the file
+
+            const params = {
+                Bucket: 'jewarcdn',
+                Key: fileKey,
+                Body: file,
+                ACL: 'public-read', // Set ACL to 'public-read' for public access
+                ContentType: file.type
+            };
+
+            // Upload file to S3
+            s3.upload(params, function (err, data) {
+                if (err) {
+                    console.log('Error uploading:', err);
+                } else {
+                    console.log('Upload successful! File location:', data.Location);
+                    // Handle success - you might want to store the URLs or perform other actions
+                }
+            });
+        }
+
+
+         
 
 
 
-        form_data.append('file', file_data);
-        $.ajax({
-            //url: 'http://localhost/ci/index.php/welcome/upload', // point to server-side controller method
-            url: '/Handler/Actions.aspx/Test',
-
-            dataType: 'text', // what to expect back from the server
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function (response) {
-                $('#msg').html(response); // display success response from the server
-            },
-            error: function (response) {
-                $('#msg').html(response); // display error response from the server
-            }
-        });
     });
 
 
@@ -742,12 +791,55 @@
             Sauna = $('#chkSauna').is(':checked');
 
 
+        var ImageLinks = '';
+
+        getImageURL().then(function (url) {
+            console.log('Uploaded image URL:', url);
+            // Use the image URL or perform further actions here
+
+            ImageLinks = url;
+        }).catch(function (error) {
+            // Handle any errors here
+        });
+
+
+
+        //const files = $('#fileSelect1111')[0].files;
+        //for (let i = 0; i < files.length; i++) {
+        //    const file = files[i];
+        //    const fileName = file.name;
+        //    const fileKey = fileName; // The S3 key where you want to store the file
+
+        //    const params = {
+        //        Bucket: 'jewarcdn',
+        //        Key: fileKey,
+        //        Body: file,
+        //        ACL: 'public-read', // Set ACL to 'public-read' for public access
+        //        ContentType: file.type
+        //    };
+
+        //    // Upload file to S3
+        //    s3.upload(params, function (err, data) {
+        //        if (err) {
+        //            console.log('Error uploading:', err);
+        //        } else {
+        //            console.log('Upload successful! File location:', data.Location);
+        //            // Handle success - you might want to store the URLs or perform other actions
+
+        //            ImageLinks += data.Location + ",";
+        //        }
+        //    });
+        //}
+
+        //alert(ImageLinks);
+
+
         $.ajax({
             url: '/Handler/Actions.aspx/AddProperty',
             type: "POST",
             //data: '{"OutletID":"' + OutletID + '","OutletName":"' + outletname + '","customerName":"' + username + '","customerPhone":"' + usernum + '","DeliveryAddress":"' + deliveryaddress + '","DeliveryFee":"' + deliveryfee + '","OrderType":"' + ordertype + '","DeliveryArea":"' + DeliveryArea + '","Notes":"' + notes + '","discount":"' + outletdiscount + '","otherdiscount":"0","tax":"' + outlettax + '","deliverytime":"' + deliverytime + '","PreOrderDeliveryTime":"' + PreOrderDeliveryTime + '"}',
         
-            data: '{"Title":"' + Title + '","Description":"' + Description + '","Category":"' + Category + '","Listed":"' + Listed + '","Status":"' + Status + '","Price":"' + Price + '","YearlyTaxRate":"' + YearlyTaxRate + '","AfterPriceLabel":"' + AfterPriceLabel + '","VideoFrom":"' + VideoFrom + '","EmbedVideoid":"' + EmbedVideoid + '","VirtualTour":"' + VirtualTour + '","Address":"' + Address + '","State":"' + State + '","City":"' + City + '","Neighborhood":"' + Neighborhood + '","Zip":"' + Zip + '","Country":"' + Country + '","Latitude":"' + Latitude + '","Longitude":"' + Longitude + '","Size":"' + Size + '","LotSize":"' + LotSize + '","Rooms":"' + Rooms + '","Bedrooms":"' + Bedrooms + '","Bathrooms":"' + Bathrooms + '","CustomID":"' + CustomID + '","Garages":"' + Garages + '","GarageSize":"' + GarageSize + '","YearBuilt":"' + YearBuilt + '","AvailableFrom":"' + AvailableFrom + '","Basement":"' + Basement + '","ExtraDetails":"' + ExtraDetails + '","Roofing":"' + Roofing + '","ExteriorMaterial":"' + ExteriorMaterial + '","Structure":"' + Structure + '","Floors":"' + Floors + '","AgentNotes":"' + AgentNotes + '","EnergyClass":"' + EnergyClass + '","EnergyIndex":"' + EnergyIndex + '","Attic":"' + Attic + '","BasketballCourt":"' + BasketballCourt + '","AirConditioning":"' + AirConditioning + '","Lawn":"' + Lawn + '","SwimmingPool":"' + SwimmingPool + '","Barbeque":"' + Barbeque + '","Microwave":"' + Microwave + '","TVCable":"' + TVCable + '","Dryer":"' + Dryer + '","OutdoorShower":"' + OutdoorShower + '","Washer":"' + Washer + '","Gym":"' + Gym + '","OceanView":"' + OceanView + '","PrivateSpace":"' + PrivateSpace + '","LakeView":"' + LakeView + '","WineCellar":"' + WineCellar + '","FrontYard":"' + FrontYard + '","Refrigerator":"' + Refrigerator + '","WiFi":"' + WiFi + '","Laundry":"' + Laundry + '","Sauna":"' + Sauna + '"}',
+            data: '{"Title":"' + Title + '","Description":"' + Description + '","Category":"' + Category + '","Listed":"' + Listed + '","Status":"' + Status + '","Price":"' + Price + '","YearlyTaxRate":"' + YearlyTaxRate + '","AfterPriceLabel":"' + AfterPriceLabel + '","VideoFrom":"' + VideoFrom + '","EmbedVideoid":"' + EmbedVideoid + '","VirtualTour":"' + VirtualTour + '","Address":"' + Address + '","State":"' + State + '","City":"' + City + '","Neighborhood":"' + Neighborhood + '","Zip":"' + Zip + '","Country":"' + Country + '","Latitude":"' + Latitude + '","Longitude":"' + Longitude + '","Size":"' + Size + '","LotSize":"' + LotSize + '","Rooms":"' + Rooms + '","Bedrooms":"' + Bedrooms + '","Bathrooms":"' + Bathrooms + '","CustomID":"' + CustomID + '","Garages":"' + Garages + '","GarageSize":"' + GarageSize + '","YearBuilt":"' + YearBuilt + '","AvailableFrom":"' + AvailableFrom + '","Basement":"' + Basement + '","ExtraDetails":"' + ExtraDetails + '","Roofing":"' + Roofing + '","ExteriorMaterial":"' + ExteriorMaterial + '","Structure":"' + Structure + '","Floors":"' + Floors + '","AgentNotes":"' + AgentNotes + '","EnergyClass":"' + EnergyClass + '","EnergyIndex":"' + EnergyIndex + '","Attic":"' + Attic + '","BasketballCourt":"' + BasketballCourt + '","AirConditioning":"' + AirConditioning + '","Lawn":"' + Lawn + '","SwimmingPool":"' + SwimmingPool + '","Barbeque":"' + Barbeque + '","Microwave":"' + Microwave + '","TVCable":"' + TVCable + '","Dryer":"' + Dryer + '","OutdoorShower":"' + OutdoorShower + '","Washer":"' + Washer + '","Gym":"' + Gym + '","OceanView":"' + OceanView + '","PrivateSpace":"' + PrivateSpace + '","LakeView":"' + LakeView + '","WineCellar":"' + WineCellar + '","FrontYard":"' + FrontYard + '","Refrigerator":"' + Refrigerator + '","WiFi":"' + WiFi + '","Laundry":"' + Laundry + '","Sauna":"' + Sauna + '","ImageLinks":"' + ImageLinks + '"}',
 
 
             contentType: "application/json; charset=utf-8",
@@ -773,6 +865,54 @@
             }
         });
     });
+
+    // Function that needs to wait for image upload and returns image URL
+    function getImageURL() {
+        const files = $('#fileSelect1111')[0].files;
+
+        for (let i = 0; i < files.length; i++) {
+            // Upload image to S3 and wait for the upload to complete
+            return uploadImageToS3(files[i])
+                .then(function (imageURL) {
+                    // Return the image URL once the image upload is complete
+                    return imageURL;
+                })
+                .fail(function (error) {
+                    // Handle errors if the image upload fails
+                    console.error('Error uploading image:', error);
+                    throw error; // Propagate the error
+                });
+        }
+    }
+
+
+    function uploadImageToS3(imageFile) {
+        const deferred = $.Deferred();
+
+        const s3 = new AWS.S3();
+        const fileKey = imageFile.name; // Modify as needed
+
+        const params = {
+            Bucket: 'jewarcdn',
+            Key: fileKey,
+            Body: imageFile,
+            ACL: 'public-read', // Set ACL as needed
+            ContentType: imageFile.type // Set ContentType based on the uploaded file type
+        };
+
+        // Upload file to S3
+        s3.upload(params, function (err, data) {
+            if (err) {
+                deferred.reject(err); // Reject the deferred object if there's an error
+            } else {
+                deferred.resolve(data.Location); // Resolve the deferred object with the uploaded file's URL
+            }
+        });
+
+        return deferred.promise(); // Return the promise from the deferred object
+    }
+    
+
 
     $('body').on('click', '#btnUpdateProfile', function (e) {
         e.preventDefault();

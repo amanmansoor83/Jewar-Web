@@ -68,12 +68,12 @@
           <div class="col-6 col-lg-auto">
             <div class="text-center text-lg-end header_right_widgets">
               <ul class="mb0 d-flex justify-content-center justify-content-sm-end p-0">
-                <li class="d-none d-sm-block"><a class="text-center mr15" href="Login"><span class="flaticon-email"></span></a></li>
-                <li class="d-none d-sm-block"><a class="text-center mr20 notif" href="#"><span class="flaticon-bell"></span></a></li>
+               <%-- <li class="d-none d-sm-block"><a class="text-center mr15" href="Login"><span class="flaticon-email"></span></a></li>
+                <li class="d-none d-sm-block"><a class="text-center mr20 notif" href="#"><span class="flaticon-bell"></span></a></li>--%>
                 <li class=" user_setting">
                   <div class="dropdown">
                     <a class="btn" href="#" data-bs-toggle="dropdown">
-                      <img src="../images/resource/user.png" alt="user.png"> 
+                      <img src=" <%= Session["AgentImage"].ToString() != "" ? Session["AgentImage"].ToString() : "../images/resource/user-default.png" %>" alt="user-default.png"> 
                     </a>
                     <div class="dropdown-menu">
                       <div class="user_setting_content">
@@ -208,6 +208,10 @@
 <script src="../js/jquery-scrolltofixed-min.js"></script>
 <script src="../js/dashboard-script.js"></script>
 <!-- Custom script for all pages --> 
+
+      <script src="https://sdk.amazonaws.com/js/aws-sdk-2.971.0.min.js"></script>
+  
+
 <script src="../js/script.js"></script>
 </body>
 

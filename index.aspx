@@ -123,11 +123,11 @@
             <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
           </div>
         </div>
-        <div class="col-lg-3">
+        <%--<div class="col-lg-3">
           <div class="text-start text-lg-end mb-3">
             <a class="ud-btn2" href="page-property-single-v1.html">See All Cities<i class="fal fa-arrow-right-long"></i></a>
           </div>
-        </div>
+        </div>--%>
       </div>
       <div class="row">
         <div class="col-lg-12 wow fadeInUp" data-wow-delay="300ms">
@@ -221,7 +221,7 @@
             <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
           </div>
         </div>
-        <div class="col-lg-6">
+        <%--<div class="col-lg-6">
           <div class="dark-light-navtab style2 text-start text-lg-end mt-0 mt-lg-4 mb-4">
             <ul class="nav nav-pills justify-content-start justify-content-lg-end" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
@@ -238,13 +238,17 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div>--%>
       </div>
       <div class="row">
         <div class="col-lg-12 wow fadeInUp" data-wow-delay="300ms">
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-house" role="tabpanel" aria-labelledby="pills-house-tab">
               <div class="row">
+
+                            <asp:Repeater ID="rptPopularProperties" runat="server">
+<ItemTemplate>
+
                 <div class="col-md-6 col-xl-4">
                   <div class="listing-style6">
                     <div class="list-thumb">
@@ -266,465 +270,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-2.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$82,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Luxury villa in Rego Park</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-3.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$63,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Villa on Hollywood Boulevard</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-4.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Northwest Office Space</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-5.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Affordable Green Villa House</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-6.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Sky Pool Villa House</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
+                             </ItemTemplate>
+</asp:Repeater>
               </div>
             </div>
-            <div class="tab-pane fade" id="pills-villa" role="tabpanel" aria-labelledby="pills-villa-tab">
-              <div class="row">
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-1.jpg" alt="">
-                      <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                      <div class="list-tag2 fz12">FOR SALE</div>
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Equestrian Family Home</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-2.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$82,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Luxury villa in Rego Park</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-3.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$63,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Villa on Hollywood Boulevard</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-4.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Northwest Office Space</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-5.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Affordable Green Villa House</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-6.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Sky Pool Villa House</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="pills-office" role="tabpanel" aria-labelledby="pills-office-tab">
-              <div class="row">
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-1.jpg" alt="">
-                      <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                      <div class="list-tag2 fz12">FOR SALE</div>
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Equestrian Family Home</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-2.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$82,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Luxury villa in Rego Park</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-3.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$63,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Villa on Hollywood Boulevard</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-4.jpg" alt="">
-                      <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Northwest Office Space</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-5.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Affordable Green Villa House</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-6.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Sky Pool Villa House</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="pills-apartments" role="tabpanel" aria-labelledby="pills-apartments-tab">
-              <div class="row">
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-1.jpg" alt="">
-                      <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                      <div class="list-tag2 fz12">FOR SALE</div>
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Equestrian Family Home</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-2.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$82,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Luxury villa in Rego Park</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-3.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$63,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Villa on Hollywood Boulevard</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-4.jpg" alt="">
-                      <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Northwest Office Space</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-5.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Affordable Green Villa House</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                  <div class="listing-style6">
-                    <div class="list-thumb">
-                      <img class="w-100" src="images/listings/md-6.jpg" alt="">
-                      <div class="list-meta">
-                        <div class="icons">
-                          <a href="#"><span class="flaticon-like"></span></a>
-                          <a href="#"><span class="flaticon-new-tab"></span></a>
-                          <a href="#"><span class="flaticon-fullscreen"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-content">
-                      <div class="list-price mb-2">$14,000</div>
-                      <h6 class="list-title"><a href="page-property-single-v1.html">Sky Pool Villa House</a></h6>
-                      <p class="list-text">California City, CA, USA</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -771,7 +321,7 @@
   </section>
 
   <!-- Funfact -->
-  <section class="pt45 pb-0">
+  <%--<section class="pt45 pb-0">
     <div class="container maxw1600 bdrb1 pb50">
       <div class="row justify-content-center wow fadeInUp" data-wow-delay="300ms">
         <div class="col-sm-6 col-lg-4 col-xl-2">
@@ -809,7 +359,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>--%>
 
   <!-- Explore Apartment -->
   <section class="pb80 pb30-md">
@@ -826,7 +376,7 @@
         <div class="col-lg-12">
           <div class="explore-apartment-5col-slider navi_pagi_top_right slider-5-grid owl-carousel owl-theme wow fadeInUp" data-wow-delay="300ms">
             <div class="item">
-              <a href="page-property-single-v1.html">
+              <a href="/listing">
                 <div class="apartment-style1">
                   <div class="apartment-img"><img class="w-100" src="images/listings/as-1.jpg" alt=""></div>
                   <div class="apartment-content">
@@ -837,7 +387,7 @@
               </a>
             </div>
             <div class="item">
-              <a href="page-property-single-v1.html">
+              <a href="/listing">
                 <div class="apartment-style1">
                   <div class="apartment-img"><img class="w-100" src="images/listings/as-2.jpg" alt=""></div>
                   <div class="apartment-content">
@@ -848,7 +398,7 @@
               </a>
             </div>
             <div class="item">
-              <a href="page-property-single-v1.html">
+              <a href="/listing">
                 <div class="apartment-style1">
                   <div class="apartment-img"><img class="w-100" src="images/listings/as-3.jpg" alt=""></div>
                   <div class="apartment-content">
@@ -859,7 +409,7 @@
               </a>
             </div>
             <div class="item">
-              <a href="page-property-single-v1.html">
+              <a href="/listing">
                 <div class="apartment-style1">
                   <div class="apartment-img"><img class="w-100" src="images/listings/as-4.jpg" alt=""></div>
                   <div class="apartment-content">
@@ -869,79 +419,14 @@
                 </div>
               </a>
             </div>
-            <div class="item">
-              <a href="page-property-single-v1.html">
-                <div class="apartment-style1">
-                  <div class="apartment-img"><img class="w-100" src="images/listings/as-5.jpg" alt=""></div>
-                  <div class="apartment-content">
-                    <h6 class="title mb-0">House</h6>
-                    <p class="text mb-0">22 Properties</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="item">
-              <a href="page-property-single-v1.html">
-                <div class="apartment-style1">
-                  <div class="apartment-img"><img class="w-100" src="images/listings/as-2.jpg" alt=""></div>
-                  <div class="apartment-content">
-                    <h6 class="title mb-0">Apartments</h6>
-                    <p class="text mb-0">22 Properties</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="item">
-              <a href="page-property-single-v1.html">
-                <div class="apartment-style1">
-                  <div class="apartment-img"><img class="w-100" src="images/listings/as-3.jpg" alt=""></div>
-                  <div class="apartment-content">
-                    <h6 class="title mb-0">Office</h6>
-                    <p class="text mb-0">22 Properties</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="item">
-              <a href="page-property-single-v1.html">
-                <div class="apartment-style1">
-                  <div class="apartment-img"><img class="w-100" src="images/listings/as-4.jpg" alt=""></div>
-                  <div class="apartment-content">
-                    <h6 class="title mb-0">Villa</h6>
-                    <p class="text mb-0">22 Properties</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="item">
-              <a href="page-property-single-v1.html">
-                <div class="apartment-style1">
-                  <div class="apartment-img"><img class="w-100" src="images/listings/as-5.jpg" alt=""></div>
-                  <div class="apartment-content">
-                    <h6 class="title mb-0">Townhome</h6>
-                    <p class="text mb-0">22 Properties</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="item">
-              <a href="page-property-single-v1.html">
-                <div class="apartment-style1">
-                  <div class="apartment-img"><img class="w-100" src="images/listings/as-5.jpg" alt=""></div>
-                  <div class="apartment-content">
-                    <h6 class="title mb-0">Townhome</h6>
-                    <p class="text mb-0">22 Properties</p>
-                  </div>
-                </div>
-              </a>
-            </div>
+            
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Us -->
+<%--  <!-- About Us -->
   <section class="pt0 pb40-md">
     <div class="cta-banner bgc-f7 mx-auto maxw1600 pt70 pb140 pb30-md bdrs12 position-relative mx20-lg px20-sm">
       <div class="container">
@@ -1255,7 +740,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>--%>
 
   <!-- Our CTA --> 
   <section class="our-cta p-0">
