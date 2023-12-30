@@ -653,12 +653,12 @@
     });
 
 
-    const s3 = new AWS.S3();
-    AWS.config.update({
-        accessKeyId: 'AKIA2MSTGSWEPW4ZT4U5',
-        secretAccessKey: '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',
-        region: 'ap-southeast-1'
-    });
+    //const s3 = new AWS.S3();
+    //AWS.config.update({
+    //    accessKeyId: 'AKIA2MSTGSWEPW4ZT4U5',
+    //    secretAccessKey: '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',
+    //    region: 'ap-southeast-1'
+    //});
 
 
 
